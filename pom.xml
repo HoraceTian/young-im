@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>cn.young.im</groupId>
+    <artifactId>young-im</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>young-im-common</module>
+    </modules>
+
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <fastjson2.version>2.0.41</fastjson2.version>
+        <slf4j-api.version>2.0.9</slf4j-api.version>
+        <logback-core.version>1.4.11</logback-core.version>
+        <logback-classic.version>1.4.11</logback-classic.version>
+        <cglib.version>3.3.0</cglib.version>
+        <lombok.version>1.18.28</lombok.version>
+        <spring.version>6.0.11</spring.version>
+        <spring.boot.version>3.1.3</spring.boot.version>
+        <commons.lang3.version>3.12.0</commons.lang3.version>
+        <disruptor.version>3.4.0</disruptor.version>
+        <guava.version>31.1-jre</guava.version>
+        <spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>
+        <jetbrains.annotation.version>24.0.1</jetbrains.annotation.version>
+    </properties>
+
+    <developers>
+        <developer>
+            <name>沈自在</name>
+            <email>shenzizai@foxmail.com</email>
+            <timezone>+8</timezone>
+        </developer>
+    </developers>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>io.netty</groupId>
+                <artifactId>netty-all</artifactId>
+                <version>5.0.0.Alpha2</version>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring.boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.alibaba.cloud</groupId>
+                <artifactId>spring-cloud-alibaba-dependencies</artifactId>
+                <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+</project>
