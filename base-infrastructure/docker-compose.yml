@@ -1,0 +1,121 @@
+version: '3.8'
+services:
+  mysql:
+    container_name: im-mysql
+    image: mysql:8.0.33
+    build:
+      context: ./mysql
+    restart: always
+    ports:
+      - "3306:3306"
+    privileged: true
+    volumes:
+      - ./mysql/conf:/etc/mysql/conf.d
+      - ./mysql/conf/my.cnf:/etc/mysql/conf.d/my.cnf
+      - ./logs/mysql/logs:/var/log/mysql
+      - ./mysql/data:/var/lib/mysql
+      - ./mysql/db:/docker-entrypoint-initdb.d/
+
+    environment:
+      - MYSQL_ROOT_PASSWORD
+      - TZ
+    healthcheck:
+      test: [ "CMD", "mysqladmin", "ping", "-h", "localhost" ]
+      interval: 10s
+      timeout: 5s
+      retries: 3
+    networks:
+      - young-im
+
+  redis:
+    container_name: im-redis
+    image: redis:6.0.8
+    ports:
+      - "6379:6379"
+    build:
+      context: ./redis
+    restart: always
+    command: redis-server /usr/local/midware/redis/redis.conf  # 指定 Redis 使用配置文件
+    volumes:
+      - ./redis/conf/redis.conf:/usr/local/midware/redis/redis.conf
+      - ./redis/data:/data
+    networks:
+      - young-im
+
+  nacos:
+    image: zhusaidong/nacos-server-m1:2.0.3
+    container_name: nacos
+    networks:
+      - young-im
+    environment:
+      - PREFER_HOST_MODE=hostname
+      - MODE=standalone
+      - SPRING_DATASOURCE_PLATFORM=mysql
+      - MYSQL_SERVICE_HOST=mysql
+      - MYSQL_SERVICE_DB_NAME=nacos_dev
+      - MYSQL_SERVICE_PORT=3306
+      - MYSQL_SERVICE_USER=root
+      - MYSQL_SERVICE_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - MYSQL_SERVICE_DB_PARAM=characterEncoding=utf8&connectTimeout=1000&socketTimeout=3000&autoReconnect=true&useSSL=false&allowPublicKeyRetrieval=true
+    volumes:
+      - ./logs/nacos/:/home/nacos/logs
+    ports:
+      - "8848:8848"
+      - "9848:9848"
+    depends_on:
+      - mysql
+    restart: always
+
+
+  rmqnamesrv:
+    image: foxiswho/rocketmq:server
+    container_name: rmqnamesrv
+    ports:
+      - "9876:9876"
+    volumes:
+      - ./logs/rocketmq:/opt/logs
+      - ./rocketmq/store:/opt/store
+    networks:
+      young-im:
+        aliases:
+          - rmqnamesrv
+  rmqbroker:
+    image: foxiswho/rocketmq:broker
+    container_name: rmqbroker
+    ports:
+      - 10909:10909
+      - 10911:10911
+    networks:
+      young-im:
+        aliases:
+          - rmqbroker
+    volumes:
+      - ./logs/rocketmq:/opt/logs
+      - ./rocketmq/store:/opt/store
+      - ./rocketmq/conf/broker.conf:/etc/rocketmq/broker.conf
+    environment:
+      NAMESRV_ADDR: "rmqnamesrv:9876"
+      JAVA_OPTS: " -Duser.home=/opt"
+      JAVA_OPT_EXT: "-server -Xms512m -Xmx512m -Xmn512m"
+    command: mqbroker -c /etc/rocketmq/broker.conf
+    depends_on:
+      - rmqnamesrv
+  rmqconsole:
+    image: styletang/rocketmq-console-ng
+    container_name: rmqconsole
+    ports:
+      - 8081:8081
+    environment:
+      JAVA_OPTS: "-Drocketmq.namesrv.addr=rmqnamesrv:9876 -Dcom.rocketmq.sendMessageWithVIPChannel=false -Dserver.port=8081"
+    depends_on:
+      - rmqnamesrv
+    networks:
+      young-im:
+        aliases:
+          - rmqconsole
+
+
+networks:
+  young-im:
+    name: young-im
+    driver: bridge
