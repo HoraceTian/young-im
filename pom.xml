@@ -28,6 +28,8 @@
         <commons.lang3.version>3.12.0</commons.lang3.version>
         <disruptor.version>3.4.0</disruptor.version>
         <guava.version>31.1-jre</guava.version>
+        <swagger.version>3.0.0</swagger.version>
+        <knife4j.version>3.0.3</knife4j.version>
         <spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>
         <jetbrains.annotation.version>24.0.1</jetbrains.annotation.version>
     </properties>
@@ -42,13 +44,24 @@
 
     <dependencyManagement>
         <dependencies>
+<!--            &lt;!&ndash; swagger相关&ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>io.springfox</groupId>-->
+<!--                <artifactId>springfox-boot-starter</artifactId>-->
+<!--                <version>${swagger.version}</version>-->
+<!--            </dependency>-->
+<!--            &lt;!&ndash;美化swagger&ndash;&gt;-->
+<!--            <dependency>-->
+<!--                <groupId>com.github.xiaoymin</groupId>-->
+<!--                <artifactId>knife4j-spring-boot-starter</artifactId>-->
+<!--                <version>${knife4j.version}</version>-->
+<!--            </dependency>-->
             <dependency>
                 <groupId>io.netty</groupId>
                 <artifactId>netty-all</artifactId>
                 <version>5.0.0.Alpha2</version>
             </dependency>
-
-            <dependency>
+              <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
                 <version>${spring.boot.version}</version>
