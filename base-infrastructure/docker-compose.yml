@@ -113,7 +113,17 @@ services:
       young-im:
         aliases:
           - rmqconsole
-
+  nginx:
+    image: nginx
+    container_name: nginx
+    build:
+      context: ./nginx
+    restart: always
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./logs/nginx:/im/logs/nginx
 
 networks:
   young-im:
