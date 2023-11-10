@@ -1,6 +1,6 @@
 package cn.young.im.common.design.template;
 
-import cn.young.im.common.dto.response.ResultWrapper;
+import cn.young.im.common.dto.response.ApiResult;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 
@@ -28,30 +28,30 @@ public abstract class AbstractTemplateOperate<T, P> implements Operate<T, P> {
     /**
      * 扩展点：参数验证
      */
-    protected void validation(P arg, ResultWrapper<T> result) {
+    protected void validation(P arg, ApiResult result) {
     }
 
     /**
      * 扩展点：具体业务
      */
-    protected abstract ResultWrapper<T> processor(P param, ResultWrapper<T> result);
+    protected abstract ApiResult processor(P param, ApiResult result);
 
     /**
      * 扩展点：结果封装
      */
-    protected void result(P param, ResultWrapper<T> result) {
+    protected void result(P param, ApiResult result) {
     }
 
     /**
      * 扩展点：异常补充
      */
-    protected void exceptionDetail(P arg, ResultWrapper<T> result, Exception exception) {
+    protected void exceptionDetail(P arg, ApiResult result, Exception exception) {
 
     }
 
     @Override
-    public ResultWrapper<T> operate(P param) {
-        ResultWrapper<T> res = ResultWrapper.success();
+    public ApiResult operate(P param) {
+        ApiResult res = ApiResult.success();
 
         try {
             this.validation(param, res);
