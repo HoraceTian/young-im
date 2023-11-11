@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: young-im-gateway
+
+  cloud:
+    nacos:
+      config:
+        server-addr: ${NACOS_CONFIG_SERVER}
+        file-extension: yml
+        group: ${NACOS_GROUP}
+        extension-configs:
+          - data-id: common.yml
+            group: ${NACOS_GROUP}
+        namespace: ${NACOS_NAMESPACE}
+        username: ${NACOS_USERNAME}
+        password: ${NACOS_PASSWORD}
+
