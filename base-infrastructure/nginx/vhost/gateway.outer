@@ -1,13 +1,14 @@
 server {
-    listen                              80;
-    server_name                         gateway.luanye.net;
-    access_log                          /im/logs/nginx/gateway.luanye.net_access.log UPSTREAM;
-    error_log                           /im/logs/nginx/gateway.luanye.net_error.log;
+    listen                                80;
+    server_name                           xxx.xxx.xxx;
+    access_log                            /im/logs/nginx/nacos.szz.tax_access.log UPSTREAM;
+    error_log                             /im/logs/nginx/nacos.szz.tax_error.log;
+
     location / {
         proxy_set_header X-Forwarded-Host $host;
         proxy_set_header X-Real-IP $remote_addr;
         proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
         proxy_set_header Via "nginx";
-        proxy_pass im-gateway:8080;
+        proxy_pass http://nacos:8848;
     }
 }

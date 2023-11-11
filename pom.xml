@@ -24,6 +24,7 @@
         <cglib.version>3.3.0</cglib.version>
         <lombok.version>1.18.28</lombok.version>
         <spring.boot.version>2.7.17</spring.boot.version>
+        <spring.cloud.version>2021.0.8</spring.cloud.version>
         <commons.lang3.version>3.12.0</commons.lang3.version>
         <disruptor.version>3.4.0</disruptor.version>
         <guava.version>31.1-jre</guava.version>
@@ -75,6 +76,14 @@
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
                 <version>${spring-cloud-alibaba.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring.cloud.version}</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
