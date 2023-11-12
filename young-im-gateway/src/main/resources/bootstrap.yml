@@ -5,12 +5,15 @@ spring:
   cloud:
     nacos:
       config:
+        # 配置中心地址
         server-addr: ${NACOS_CONFIG_SERVER}
         file-extension: yml
         group: ${NACOS_GROUP}
+        # 额外配置
         extension-configs:
           - data-id: common.yml
             group: ${NACOS_GROUP}
+        # 租户号
         namespace: ${NACOS_NAMESPACE}
         username: ${NACOS_USERNAME}
         password: ${NACOS_PASSWORD}
