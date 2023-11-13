@@ -40,6 +40,33 @@
             <version>1.0</version>
         </dependency>
         <!--业务 end-->
+        <!-- swagger相关-->
+        <dependency>
+            <groupId>io.springfox</groupId>
+            <artifactId>springfox-boot-starter</artifactId>
+            <version>${swagger.version}</version>
+        </dependency>
+        <!--美化swagger-->
+        <dependency>
+            <groupId>com.github.xiaoymin</groupId>
+            <artifactId>knife4j-spring-boot-starter</artifactId>
+            <version>${knife4j.version}</version>
+        </dependency>
+        <!--        undertow服务器-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-undertow</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
+        </dependency>
+        <!--        common-->
+        <dependency>
+            <groupId>cn.young.im</groupId>
+            <artifactId>young-im-common</artifactId>
+            <version>${young-im-common.version}</version>
+        </dependency>
     </dependencies>
     <build>
         <finalName>Young-Im-Gateway</finalName>

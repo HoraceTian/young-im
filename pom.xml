@@ -13,6 +13,10 @@
         <module>young-im-common</module>
         <module>young-im-gateway</module>
         <module>young-im-config</module>
+        <module>young-im-biz</module>
+        <module>young-im-netty</module>
+        <module>young-im-admin</module>
+        <module>young-im-message</module>
     </modules>
 
     <properties>

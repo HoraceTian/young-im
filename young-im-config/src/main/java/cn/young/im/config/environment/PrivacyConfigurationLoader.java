@@ -1,12 +1,15 @@
 package cn.young.im.config.environment;
 
 import cn.hutool.core.io.FileUtil;
+import cn.young.im.common.exception.YoungImException;
+import cn.young.im.common.exception.YoungImExceptionErrorMsg;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.env.EnvironmentPostProcessor;
 import org.springframework.core.env.ConfigurableEnvironment;
 import org.springframework.stereotype.Component;
+import org.springframework.util.StringUtils;
 
 import java.io.File;
 import java.nio.charset.Charset;
@@ -24,6 +27,9 @@ public class PrivacyConfigurationLoader implements EnvironmentPostProcessor {
     public void postProcessEnvironment(ConfigurableEnvironment environment, SpringApplication application) {
         // 1. 提取配置
         String configPath = System.getenv("CONFIG_PATH");
+        if (!StringUtils.hasLength(configPath) || !new File(configPath).exists()) {
+            throw new YoungImException(YoungImExceptionErrorMsg.START_CONFIG_FILE_NOT_FOUND);
+        }
         String config = FileUtil.readString(new File(configPath), Charset.defaultCharset());
 
         // 2. 解析源文件
