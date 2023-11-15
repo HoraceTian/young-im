@@ -4,7 +4,6 @@ import lombok.extern.slf4j.Slf4j;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.util.Arrays;
 import java.util.EnumSet;
 import java.util.Objects;
 
@@ -22,7 +21,6 @@ public class EnumHelper {
     public static <T extends Enum<T>> T getEnumByCode(Class<T> clazz, Object code) {
         try {
             Method method = clazz.getMethod(BIZ_CODE_METHOD_NAME);
-
             EnumSet<T> enumSet = EnumSet.allOf(clazz);
             for (T t : enumSet) {
                 Object ret = method.invoke(t);

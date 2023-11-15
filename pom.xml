@@ -31,6 +31,7 @@
         <spring.boot.version>2.7.17</spring.boot.version>
         <spring.cloud.version>2021.0.8</spring.cloud.version>
         <commons.lang3.version>3.12.0</commons.lang3.version>
+        <commons.pool2.version>2.11.1</commons.pool2.version>
         <disruptor.version>3.4.0</disruptor.version>
         <guava.version>31.1-jre</guava.version>
         <swagger.version>3.0.0</swagger.version>
@@ -40,13 +41,13 @@
         <netty.version>4.1.90.Final</netty.version>
         <young-im-common.version>1.0</young-im-common.version>
         <rocketmq.version>5.1.4</rocketmq.version>
-        <fastjson.version>2.0.25</fastjson.version>
+        <fastjson2.version>2.0.42</fastjson2.version>
         <mysql.version>8.0.32</mysql.version>
+        <mybatis-plus.version>3.4.3</mybatis-plus.version>
         <sharding-jdbc.version>4.1.1</sharding-jdbc.version>
         <redisson.version>3.20.0</redisson.version>
         <hutool.version>5.5.1</hutool.version>
     </properties>
-
     <developers>
         <developer>
             <name>沈自在</name>
@@ -54,15 +55,8 @@
             <timezone>+8</timezone>
         </developer>
     </developers>
-
     <dependencyManagement>
         <dependencies>
-            <!--            </dependency>-->
-            <dependency>
-                <groupId>io.netty</groupId>
-                <artifactId>netty-all</artifactId>
-                <version>${netty.version}</version>
-            </dependency>
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-dependencies</artifactId>
@@ -71,12 +65,6 @@
                 <scope>import</scope>
             </dependency>
 
-            <!-- fastjson -->
-            <dependency>
-                <groupId>com.alibaba</groupId>
-                <artifactId>fastjson</artifactId>
-                <version>${fastjson.version}</version>
-            </dependency>
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>
@@ -84,7 +72,6 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
@@ -96,27 +83,13 @@
             <dependency>
                 <groupId>com.baomidou</groupId>
                 <artifactId>mybatis-plus-boot-starter</artifactId>
-                <version>3.4.3</version>
+                <version>${mybatis-plus.version}</version>
             </dependency>
-
-            <dependency>
-                <groupId>cn.hutool</groupId>
-                <artifactId>hutool-all</artifactId>
-                <version>5.8.19</version>
-            </dependency>
-
-            <dependency>
-                <groupId>com.alibaba.fastjson2</groupId>
-                <artifactId>fastjson2</artifactId>
-                <version>2.0.41</version>
-            </dependency>
-
             <dependency>
                 <groupId>mysql</groupId>
                 <artifactId>mysql-connector-java</artifactId>
-                <version>8.0.32</version>
+                <version>${mysql.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
-
 </project>

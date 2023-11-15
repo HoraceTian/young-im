@@ -1,6 +1,5 @@
 package cn.young.im.common.dto.response;
 
-import io.swagger.annotations.ApiModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -13,7 +12,6 @@ import lombok.Data;
  */
 @AllArgsConstructor
 @Data
-@ApiModel(description = "api返回值统一格式")
 public class ApiResult {
 
     private static final Integer SUCCESS = 200;

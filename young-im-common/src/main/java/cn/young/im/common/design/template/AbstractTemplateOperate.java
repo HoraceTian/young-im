@@ -10,8 +10,9 @@ import lombok.extern.slf4j.Slf4j;
  * @description 模版方式基础
  * @date 2023/11/10
  */
-@Slf4j
+
 @Getter
+@Slf4j
 public abstract class AbstractTemplateOperate<T, P> implements Operate<T, P> {
     private final String logicName;
     private final String errorCode;

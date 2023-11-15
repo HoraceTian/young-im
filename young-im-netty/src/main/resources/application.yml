@@ -1,0 +1,6 @@
+# 以后这些文件可能从nacos拿
+im-netty-config:
+  WebSocketPort: 9090
+  heartBeatTime: 1000
+springfox:
+   enabled: false

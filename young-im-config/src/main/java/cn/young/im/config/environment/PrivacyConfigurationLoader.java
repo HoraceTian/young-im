@@ -5,6 +5,7 @@ import cn.young.im.common.exception.YoungImException;
 import cn.young.im.common.exception.YoungImExceptionErrorMsg;
 import com.alibaba.fastjson2.JSON;
 import com.alibaba.fastjson2.JSONObject;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.env.EnvironmentPostProcessor;
 import org.springframework.core.env.ConfigurableEnvironment;
@@ -21,6 +22,7 @@ import java.nio.charset.Charset;
  * @date 2023/11/12
  */
 @Component
+@Slf4j
 public class PrivacyConfigurationLoader implements EnvironmentPostProcessor {
 
     @Override
@@ -39,5 +41,6 @@ public class PrivacyConfigurationLoader implements EnvironmentPostProcessor {
         environment.getSystemProperties().put("spring.datasource.url", jsonObj.getString("mysql-url"));
         environment.getSystemProperties().put("spring.datasource.username", jsonObj.getString("mysql-username"));
         environment.getSystemProperties().put("spring.datasource.password", jsonObj.getString("mysql-password"));
+        log.info("配置替换成功");
     }
 }
