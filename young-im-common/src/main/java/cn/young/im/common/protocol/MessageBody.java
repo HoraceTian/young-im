@@ -14,19 +14,13 @@ import java.io.Serializable;
 @Data
 public class MessageBody implements Serializable {
     /**
-     * 发送放id
+     * 发送方id
      */
     private String sendId;
     /**
      * 接收方
      */
     private String receiveId;
-
-    /**
-     * 客户端标识
-     */
-    private int clientType;
-
     /**
      * 消息ID
      */

@@ -25,21 +25,22 @@ public class WebSocketMessageDecoderHandler extends MessageToMessageDecoder<Bina
     @Override
     protected void decode(ChannelHandlerContext ctx, BinaryWebSocketFrame msg, List<Object> out) {
         ByteBuf content = msg.content();
-        if (content.readableBytes() < 28) {
+        if (content.readableBytes() < Message.MESSAGE_MIN_LENGTH) {
             return;
         }
         Message message = null;
         try {
             // 获取command
-            int command = content.readInt();
+            short command = content.readShort();
             // 获取version
-            int version = content.readInt();
+            short version = content.readShort();
             // 获取clientType
-            int clientType = content.readInt();
-            // 获取messageType
-            int messageType = content.readInt();
+            short clientType = content.readShort();
             // 获取appId
             int appId = content.readInt();
+            // 获取messageType
+            short messageType = content.readShort();
+            short messageProtocol = content.readShort();
             // 获取bodyLen
             int bodyLen = content.readInt();
             if (content.readableBytes() < bodyLen) {
@@ -53,12 +54,12 @@ public class WebSocketMessageDecoderHandler extends MessageToMessageDecoder<Bina
             messageHeader.setAppId(appId);
             messageHeader.setClientType(clientType);
             messageHeader.setCommand(command);
-            messageHeader.setLength(bodyLen);
+            messageHeader.setMessageProtocol(messageProtocol);
             messageHeader.setVersion(version);
             messageHeader.setMessageType(messageType);
             // 组装message body
             String bodyRawData = new String(bodyByteData, Charset.defaultCharset());
-            // todo 目前是json，未来可能选择其他高效的方式
+            // todo 目前是json，未来会根据messageProtocol选择不同的序列化方式
             MessageBody messageBody = JSON.parseObject(bodyRawData, MessageBody.class);
             // 组装message
             message = new Message();

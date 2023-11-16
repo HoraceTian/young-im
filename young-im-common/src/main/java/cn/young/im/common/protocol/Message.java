@@ -15,6 +15,10 @@ import java.io.Serializable;
 @Data
 @ToString
 public class Message implements Serializable {
+    /**
+     * 请求头最小字节
+     */
+    public static int MESSAGE_MIN_LENGTH = 18;
     private MessageHeader messageHeader;
     private MessageBody messageBody;
 }

@@ -18,24 +18,21 @@ public class YoungImThreadFactory implements ThreadFactory {
     boolean isDaemon;
 
     YoungImThreadFactory(String threadName, boolean daemon) {
-        SecurityManager s = System.getSecurityManager();
-        group = (s != null) ? s.getThreadGroup() :
-                Thread.currentThread().getThreadGroup();
-        namePrefix = threadName + "-pool-" +
-                poolNumber.getAndIncrement() +
-                "-thread-";
+        group = Thread.currentThread().getThreadGroup();
+        namePrefix = threadName
+                + "-pool-"
+                + poolNumber.getAndIncrement()
+                + "-thread-";
         isDaemon = daemon;
     }
 
     @Override
-    public Thread newThread(Runnable r) {
-        Thread t = new Thread(group, r,
+    public Thread newThread(Runnable runnable) {
+        Thread thread = new Thread(group, runnable,
                 namePrefix + threadNumber.getAndIncrement(),
                 0);
-        if (t.isDaemon())
-            t.setDaemon(isDaemon);
-        if (t.getPriority() != Thread.NORM_PRIORITY)
-            t.setPriority(Thread.NORM_PRIORITY);
-        return t;
+        thread.setDaemon(isDaemon);
+        thread.setPriority(Thread.NORM_PRIORITY);
+        return thread;
     }
 }
