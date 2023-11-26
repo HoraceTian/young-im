@@ -18,4 +18,10 @@ spring:
         username: ${NACOS_USERNAME}
         password: ${NACOS_PASSWORD}
 #        namespace: 70f7dc20-f6d1-4076-8d2d-1703b4fb7ae6
+      discovery:
+        server-addr: ${NACOS_CONFIG_SERVER}
+        namespace: ${NACOS_NAMESPACE}
+        username: ${NACOS_USERNAME}
+        password: ${NACOS_PASSWORD}
+        group: ${NACOS_GROUP}
 

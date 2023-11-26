@@ -31,7 +31,7 @@ public class CommandUtil {
      * @return 指令
      */
     public static Integer parseCommand(Message message) {
-        return message.getMessageHeader().getCommand();
+        return Integer.valueOf(message.getMessageHeader().getCommand());
     }
 
     /**

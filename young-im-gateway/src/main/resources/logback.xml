@@ -7,7 +7,7 @@
 
     <shutdownHook class="ch.qos.logback.core.hook.DelayingShutdownHook"/>
     <property name="LOG_HOME" value="${log.home:-./logs}"/>
-    <property name="LOG_APP_NAME" value="${log.app-name:-shenyu-bootstrap}"/>
+    <property name="LOG_APP_NAME" value="${log.app-name:-young-im-gateway}"/>
     <property name="MAX_SINGLE_LOG_FILE_SIZE" value="${log.max-single-log-file-size:-100MB}"/>
     <property name="MAX_LOG_FILE_HISTORY" value="${log.max-log-file-history:-7}"/>
     <property name="LOG_FILE_TOTAL_CAPACITY" value="${log.log-file-total-capacity:-10GB}"/>
