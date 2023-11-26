@@ -16,8 +16,6 @@ public class PluginManager implements IPluginExtract {
 
     private final Map<PluginGroup, List<YoungPlugin>> plugins;
 
-    private final Map<String, List<YoungPlugin>> pluginChains;
-
     public PluginManager(Map<PluginGroup, List<YoungPlugin>> plugins) {
         this.plugins = plugins;
     }
