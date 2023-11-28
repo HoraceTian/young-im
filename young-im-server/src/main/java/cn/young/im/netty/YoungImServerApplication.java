@@ -4,7 +4,6 @@ import cn.young.im.netty.server.ImWebSocketServer;
 import cn.young.im.netty.config.ImNettyConfig;
 import cn.young.im.plugin.api.YoungPlugin;
 import cn.young.im.plugin.api.dto.rule.PluginGroup;
-import cn.young.im.plugin.user.UserProcessPlugin;
 import cn.young.im.springboot.starter.compose.PluginManager;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
@@ -14,7 +13,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 @SpringBootApplication
-public class YoungImNettyApplication implements CommandLineRunner {
+public class YoungImServerApplication implements CommandLineRunner {
     @Resource
     private ImNettyConfig imNettyConfig;
 
@@ -22,7 +21,7 @@ public class YoungImNettyApplication implements CommandLineRunner {
     private PluginManager pluginManager;
 
     public static void main(String[] args) {
-        SpringApplication.run(YoungImNettyApplication.class, args);
+        SpringApplication.run(YoungImServerApplication.class, args);
     }
 
     @Override

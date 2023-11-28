@@ -2,7 +2,7 @@ package cn.young.im.plugin.base;
 
 import cn.young.im.plugin.api.YoungPlugin;
 import cn.young.im.plugin.api.context.YoungContext;
-import cn.young.im.plugin.api.dto.response.YoungResult;
+import cn.young.im.plugin.api.dto.response.YoungPluginResult;
 
 /**
  * 作者：沈自在 <a href="https://www.szz.tax">Blog</a>
@@ -13,12 +13,12 @@ import cn.young.im.plugin.api.dto.response.YoungResult;
 public abstract class AbstractSimpleYoungPlugin implements YoungPlugin {
 
     @Override
-    public YoungResult execute(YoungContext context) {
+    public YoungPluginResult execute(YoungContext context) {
         return doExecute(context);
     }
 
     /**
      * 子类实现
      */
-    public abstract YoungResult doExecute(YoungContext context);
+    public abstract YoungPluginResult doExecute(YoungContext context);
 }

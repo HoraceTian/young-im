@@ -1,7 +1,7 @@
 package cn.young.im.plugin.api;
 
 import cn.young.im.plugin.api.context.YoungContext;
-import cn.young.im.plugin.api.dto.response.YoungResult;
+import cn.young.im.plugin.api.dto.response.YoungPluginResult;
 import cn.young.im.plugin.api.dto.rule.PluginGroup;
 
 /**
@@ -32,7 +32,7 @@ public interface YoungPlugin {
     /**
      * 业务执行点
      */
-    YoungResult execute(YoungContext context);
+    YoungPluginResult execute(YoungContext context);
 
     /**
      * 判断是否可用

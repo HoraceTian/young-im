@@ -25,12 +25,10 @@ public class PluginComposeConfiguration {
      */
     @Bean
     public PluginManager pluginManager(final ObjectProvider<List<YoungPlugin>> plugins) {
-
         Map<PluginGroup, List<YoungPlugin>> pluginMap =
                 Objects.requireNonNull(plugins.getIfAvailable())
                         .stream()
                         .collect(Collectors.groupingBy(YoungPlugin::acquireGroup));
-
         return new PluginManager(pluginMap);
     }
 }

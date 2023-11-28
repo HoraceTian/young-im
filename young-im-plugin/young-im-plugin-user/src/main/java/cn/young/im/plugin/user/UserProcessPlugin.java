@@ -1,7 +1,7 @@
 package cn.young.im.plugin.user;
 
 import cn.young.im.plugin.api.context.YoungContext;
-import cn.young.im.plugin.api.dto.response.YoungResult;
+import cn.young.im.plugin.api.dto.response.YoungPluginResult;
 import cn.young.im.plugin.api.dto.rule.PluginGroup;
 import cn.young.im.plugin.base.AbstractSimpleYoungPlugin;
 
@@ -28,7 +28,7 @@ public class UserProcessPlugin extends AbstractSimpleYoungPlugin {
     }
 
     @Override
-    public YoungResult doExecute(YoungContext context) {
+    public YoungPluginResult doExecute(YoungContext context) {
         System.out.println("覆盖的插件实现");
         return null;
     }

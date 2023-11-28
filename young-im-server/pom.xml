@@ -7,7 +7,7 @@
         <artifactId>young-im</artifactId>
         <version>1.0</version>
     </parent>
-    <artifactId>young-im-netty</artifactId>
+    <artifactId>young-im-server</artifactId>
     <version>1.0</version>
     <name>young-im-netty</name>
     <description>young-im-netty</description>

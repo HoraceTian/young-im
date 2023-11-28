@@ -40,7 +40,7 @@ public final class ExtensionLoader<T> {
     
     private static final Logger LOG = LoggerFactory.getLogger(ExtensionLoader.class);
     
-    private static final String SHENYU_DIRECTORY = "META-INF/young/";
+    private static final String YOUING_DIRECTORY = "META-INF/young/";
     
     private static final Map<Class<?>, ExtensionLoader<?>> LOADERS = new ConcurrentHashMap<>();
     
@@ -248,10 +248,10 @@ public final class ExtensionLoader<T> {
     }
     
     /**
-     * Load files under SHENYU_DIRECTORY.
+     * Load files under YOUING_DIRECTORY.
      */
     private void loadDirectory(final Map<String, ClassEntity> classes) {
-        String fileName = SHENYU_DIRECTORY + clazz.getName();
+        String fileName = YOUING_DIRECTORY + clazz.getName();
         try {
             Enumeration<URL> urls = Objects.nonNull(this.classLoader) ? classLoader.getResources(fileName)
                     : ClassLoader.getSystemResources(fileName);
