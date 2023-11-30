@@ -7,9 +7,17 @@ package cn.young.im.plugin.api.dto.rule;
  * @date 2023/11/26
  */
 public enum PluginGroup {
+    /**
+     * 网关策略组
+     */
+    GATEWAY_STRATEGY,
 
     /**
      * 消息策略组
      */
-    MESSAGE_STRATEGY;
+    MESSAGE_STRATEGY,
+    /**
+     * 必须插件策略组
+     */
+    ESSENTIAL_STRATEGY
 }

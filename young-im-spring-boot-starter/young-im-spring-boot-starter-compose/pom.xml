@@ -15,7 +15,7 @@
     <dependencies>
         <dependency>
             <groupId>cn.young.im</groupId>
-            <artifactId>young-im-spring-boot-starter-plugin-user</artifactId>
+            <artifactId>young-im-spring-boot-starter-plugin-privilege</artifactId>
             <version>${project.version}</version>
         </dependency>
     </dependencies>

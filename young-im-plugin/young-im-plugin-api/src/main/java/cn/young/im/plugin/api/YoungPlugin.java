@@ -1,6 +1,6 @@
 package cn.young.im.plugin.api;
 
-import cn.young.im.plugin.api.context.YoungContext;
+import cn.young.im.plugin.api.context.YoungPluginContext;
 import cn.young.im.plugin.api.dto.response.YoungPluginResult;
 import cn.young.im.plugin.api.dto.rule.PluginGroup;
 
@@ -18,6 +18,11 @@ public interface YoungPlugin {
     int getOrder();
 
     /**
+     * 获取插件的身份 id or name
+     */
+    String getIdentity();
+
+    /**
      * 获取插件组
      */
     PluginGroup acquireGroup();
@@ -27,15 +32,17 @@ public interface YoungPlugin {
      */
     default String acquireName() {
         return "";
-    };
+    }
+
+    ;
 
     /**
      * 业务执行点
      */
-    YoungPluginResult execute(YoungContext context);
+    YoungPluginResult execute(YoungPluginContext context);
 
     /**
      * 判断是否可用
      */
-    boolean isAvailable(YoungContext context);
+    boolean isAvailable(YoungPluginContext context);
 }

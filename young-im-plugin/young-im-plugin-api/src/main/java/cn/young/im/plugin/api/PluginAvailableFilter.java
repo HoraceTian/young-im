@@ -1,6 +1,6 @@
 package cn.young.im.plugin.api;
 
-import cn.young.im.plugin.api.context.YoungContext;
+import cn.young.im.plugin.api.context.YoungPluginContext;
 
 /**
  * 作者：沈自在 <a href="https://www.szz.tax">Blog</a>
@@ -12,6 +12,6 @@ public interface PluginAvailableFilter {
     /**
      * 判断是否可用
      */
-    boolean isAvailable(YoungContext context);
+    boolean isAvailable(YoungPluginContext context);
 }
 

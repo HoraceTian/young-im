@@ -1,7 +1,7 @@
-package cn.young.im.springboot.starter.plugin.user;
+package cn.young.im.springboot.starter.plugin.privilege;
 
 import cn.young.im.plugin.api.YoungPlugin;
-import cn.young.im.plugin.user.UserProcessPlugin;
+import cn.young.im.plugin.privilege.PrivilegeProcessPlugin;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
@@ -12,13 +12,13 @@ import org.springframework.context.annotation.Configuration;
  * @date 2023/11/26
  */
 @Configuration
-public class UserProcessPluginConfiguration {
+public class PrivilegeProcessPluginConfiguration {
 
     /**
      * 用户处理插件
      */
     @Bean
     public YoungPlugin userProcessPlugin() {
-        return new UserProcessPlugin();
+        return new PrivilegeProcessPlugin();
     }
 }

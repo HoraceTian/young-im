@@ -7,16 +7,16 @@
         <groupId>cn.young.im</groupId>
         <artifactId>young-im</artifactId>
         <version>1.0</version>
-        <relativePath>../../pom.xml</relativePath>
+        <relativePath>../../../pom.xml</relativePath>
     </parent>
-
-    <artifactId>young-im-plugin-user</artifactId>
+    <artifactId>young-im-spring-boot-starter-plugin-privilege</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>cn.young.im</groupId>
-            <artifactId>young-im-plugin-base</artifactId>
+            <artifactId>young-im-plugin-privilege</artifactId>
             <version>${project.version}</version>
         </dependency>
+
     </dependencies>
 </project>

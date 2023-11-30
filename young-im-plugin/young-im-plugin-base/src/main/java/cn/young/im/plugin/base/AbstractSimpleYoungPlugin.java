@@ -1,7 +1,7 @@
 package cn.young.im.plugin.base;
 
 import cn.young.im.plugin.api.YoungPlugin;
-import cn.young.im.plugin.api.context.YoungContext;
+import cn.young.im.plugin.api.context.YoungPluginContext;
 import cn.young.im.plugin.api.dto.response.YoungPluginResult;
 
 /**
@@ -13,12 +13,14 @@ import cn.young.im.plugin.api.dto.response.YoungPluginResult;
 public abstract class AbstractSimpleYoungPlugin implements YoungPlugin {
 
     @Override
-    public YoungPluginResult execute(YoungContext context) {
+    public YoungPluginResult execute(YoungPluginContext context) {
+        // 如果执行被中断或者插件不可用就忽略执行
+        if (context.isInterrupt() || !isAvailable(context)) return context.getYoungPluginResult();
         return doExecute(context);
     }
 
     /**
      * 子类实现
      */
-    public abstract YoungPluginResult doExecute(YoungContext context);
+    public abstract YoungPluginResult doExecute(YoungPluginContext context);
 }

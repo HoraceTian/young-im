@@ -24,9 +24,9 @@
         <module>young-im-plugin/young-im-plugin-base</module>
         <module>young-im-spring-boot-starter/young-im-spring-boot-starter-plugin</module>
         <module>young-im-spring-boot-starter/young-im-spring-boot-starter-compose</module>
-        <module>young-im-plugin/young-im-plugin-user</module>
+        <module>young-im-plugin/young-im-plugin-privilege</module>
         <module>
-            young-im-spring-boot-starter/young-im-spring-boot-starter-plugin/young-im-spring-boot-starter-plugin-user
+            young-im-spring-boot-starter/young-im-spring-boot-starter-plugin/young-im-spring-boot-starter-plugin-privilege
         </module>
     </modules>
 

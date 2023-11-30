@@ -1,6 +1,6 @@
 package cn.young.im.plugin.api;
 
-import cn.young.im.plugin.api.context.YoungContext;
+import cn.young.im.plugin.api.context.YoungPluginContext;
 
 /**
  * 作者：沈自在 <a href="https://www.szz.tax">Blog</a>
@@ -13,5 +13,5 @@ public interface YoungPluginSelector {
     /**
      * 实现插件选择规则
      */
-    YoungPlugin select(YoungContext context);
+    YoungPlugin select(YoungPluginContext context);
 }
