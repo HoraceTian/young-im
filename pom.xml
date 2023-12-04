@@ -33,6 +33,7 @@
         <module>young-im-loadbalance</module>
         <module>young-im-adapter/young-im-adapter-config</module>
         <module>young-im-adapter/young-im-adapter-config/young-im-adapter-config-api</module>
+        <module>young-im-adapter/young-im-adapter-config/young-im-adapter-config-nacos</module>
     </modules>
 
     <properties>
