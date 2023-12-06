@@ -1,5 +1,6 @@
 package cn.young.im.gateway.service;
 
+import lombok.NonNull;
 import org.springframework.cloud.gateway.event.RefreshRoutesEvent;
 import org.springframework.context.ApplicationEventPublisher;
 import org.springframework.context.ApplicationEventPublisherAware;
@@ -14,10 +15,13 @@ import org.springframework.stereotype.Component;
 @Component
 public class DynamicRouteService implements ApplicationEventPublisherAware {
 
+    /**
+     * 事件发布器
+     */
     private ApplicationEventPublisher publisher;
 
     @Override
-    public void setApplicationEventPublisher(ApplicationEventPublisher publisher) {
+    public void setApplicationEventPublisher(@NonNull ApplicationEventPublisher publisher) {
         this.publisher = publisher;
     }
 
