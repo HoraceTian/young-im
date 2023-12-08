@@ -7,10 +7,10 @@
         <groupId>cn.young.im</groupId>
         <artifactId>young-im</artifactId>
         <version>1.0</version>
-        <relativePath>../../../pom.xml</relativePath>
+        <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>young-im-adapter-config-api</artifactId>
+    <artifactId>young-im-spring-boot-stater-adapter</artifactId>
 
     <dependencies>
         <dependency>
