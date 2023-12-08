@@ -27,36 +27,28 @@
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
-
+        <dependency>
+            <groupId>cn.young.im</groupId>
+            <artifactId>young-im-adapter-config-environment</artifactId>
+            <version>1.0</version>
+        </dependency>
         <dependency>
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-bootstrap</artifactId>
         </dependency>
-
+        <!--        mysql-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
         </dependency>
-
-        <!--业务 start-->
         <dependency>
             <groupId>cn.young.im</groupId>
-            <artifactId>young-im-config</artifactId>
+            <artifactId>young-im-adapter-config-api</artifactId>
             <version>1.0</version>
         </dependency>
+        <!--业务 start-->
+
         <!--业务 end-->
-        <!-- swagger相关-->
-        <dependency>
-            <groupId>io.springfox</groupId>
-            <artifactId>springfox-boot-starter</artifactId>
-            <version>${swagger.version}</version>
-        </dependency>
-        <!--美化swagger-->
-        <dependency>
-            <groupId>com.github.xiaoymin</groupId>
-            <artifactId>knife4j-spring-boot-starter</artifactId>
-            <version>${knife4j.version}</version>
-        </dependency>
         <!--        undertow服务器-->
         <dependency>
             <groupId>org.springframework.boot</groupId>

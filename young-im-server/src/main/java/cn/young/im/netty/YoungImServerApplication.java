@@ -1,7 +1,7 @@
 package cn.young.im.netty;
 
-import cn.young.im.netty.server.ImWebSocketServer;
 import cn.young.im.netty.config.ImNettyConfig;
+import cn.young.im.netty.server.ImWebSocketServer;
 import cn.young.im.plugin.api.YoungPlugin;
 import cn.young.im.plugin.api.dto.rule.PluginGroup;
 import cn.young.im.springboot.starter.compose.PluginManager;
@@ -28,7 +28,7 @@ public class YoungImServerApplication implements CommandLineRunner {
     public void run(String... args) throws Exception {
         new ImWebSocketServer(imNettyConfig).start();
         List<YoungPlugin> youngPlugins = pluginManager.extractPluginByGroup(PluginGroup.MESSAGE_STRATEGY);
-
+        if (youngPlugins == null) return;
         for (YoungPlugin plugin : youngPlugins) {
             plugin.execute(null);
         }

@@ -9,8 +9,8 @@
     </parent>
     <artifactId>young-im-server</artifactId>
     <version>1.0</version>
-    <name>young-im-netty</name>
-    <description>young-im-netty</description>
+    <name>young-im-server</name>
+    <description>young-im-server</description>
     <properties>
         <java.version>17</java.version>
     </properties>
@@ -20,8 +20,6 @@
             <artifactId>young-im-spring-boot-starter-compose</artifactId>
             <version>${project.version}</version>
         </dependency>
-
-
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter</artifactId>

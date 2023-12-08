@@ -1,2 +1,0 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.young.im.springboot.starter.plugin.user.UserProcessPluginConfiguration

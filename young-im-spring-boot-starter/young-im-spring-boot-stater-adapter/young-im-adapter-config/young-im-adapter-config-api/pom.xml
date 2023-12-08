@@ -7,10 +7,16 @@
         <groupId>cn.young.im</groupId>
         <artifactId>young-im</artifactId>
         <version>1.0</version>
+        <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>young-im-config</artifactId>
+    <artifactId>young-im-adapter-config-api</artifactId>
 
+    <properties>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    </properties>
     <dependencies>
         <!--业务 start-->
         <dependency>
@@ -19,13 +25,19 @@
             <version>1.0</version>
         </dependency>
         <!--业务 end-->
-
-        <!--component start-->
+        <dependency>
+            <groupId>com.googlecode.concurrentlinkedhashmap</groupId>
+            <artifactId>concurrentlinkedhashmap-lru</artifactId>
+            <version>1.4.2</version>
+        </dependency>
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
+         <!--component start-->
         <dependency>
             <groupId>com.baomidou</groupId>
             <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
-        <!--component end-->
     </dependencies>
-
 </project>
