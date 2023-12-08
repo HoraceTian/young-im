@@ -12,13 +12,13 @@
     <modules>
         <module>young-im-common</module>
         <module>young-im-gateway</module>
+        <module>young-im-config</module>
         <module>young-im-biz</module>
         <module>young-im-server</module>
         <module>young-im-admin</module>
         <module>young-im-message</module>
         <module>young-im-spi</module>
         <module>young-im-plugin</module>
-        <module>young-im-loadbalance</module>
         <module>young-im-plugin/young-im-plugin-api</module>
         <module>young-im-spring-boot-starter</module>
         <module>young-im-plugin/young-im-plugin-base</module>
@@ -28,12 +28,12 @@
         <module>
             young-im-spring-boot-starter/young-im-spring-boot-starter-plugin/young-im-spring-boot-starter-plugin-privilege
         </module>
-        <module>young-im-spring-boot-starter/young-im-spring-boot-stater-adapter</module>
-        <module>young-im-spring-boot-starter/young-im-spring-boot-stater-adapter/young-im-adapter-registry</module>
-        <module>young-im-spring-boot-starter/young-im-spring-boot-stater-adapter/young-im-adapter-config</module>
-        <module>young-im-spring-boot-starter/young-im-spring-boot-stater-adapter/young-im-adapter-config/young-im-adapter-config-api</module>
-        <module>young-im-spring-boot-starter/young-im-spring-boot-stater-adapter/young-im-adapter-config/young-im-adapter-config-environment</module>
-
+        <module>young-im-adapter</module>
+        <module>young-im-adapter/young-im-adapter-registry</module>
+        <module>young-im-loadbalance</module>
+        <module>young-im-adapter/young-im-adapter-config</module>
+        <module>young-im-adapter/young-im-adapter-config/young-im-adapter-config-api</module>
+        <module>young-im-adapter/young-im-adapter-config/young-im-adapter-config-nacos</module>
     </modules>
 
     <properties>

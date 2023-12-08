@@ -13,7 +13,7 @@ import reactor.core.publisher.Mono;
  * @date 2023/12/4
  */
 @Component
-public class InternalRouteDefinitionRepository implements RouteDefinitionRepository {
+public class ConfigServerRouteDefinitionRepository implements RouteDefinitionRepository {
     @Override
     public Flux<RouteDefinition> getRouteDefinitions() {
         return null;
