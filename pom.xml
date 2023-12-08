@@ -30,14 +30,15 @@
         </module>
         <module>young-im-spring-boot-starter/young-im-spring-boot-stater-adapter</module>
         <module>
-            young-im-spring-boot-starter/young-im-spring-boot-stater-adapter/young-im-adapter-config/young-im-adapter-config-environment
+            young-im-spring-boot-starter/young-im-spring-boot-stater-adapter/young-im-adyoung-im-spring-boot-starter-adapter-environmentg-environment
         </module>
         <module>young-im-spring-boot-starter/young-im-spring-boot-stater-adapter</module>
         <module>
-            young-im-spring-boot-starter/young-im-spring-boot-stater-adapter/young-im-adapter-config/young-im-adapter-config-api
+            young-im-spring-boot-starter/young-im-spring-boot-stater-adapter/young-im-adyoung-im-spring-boot-starter-adapter-configer-config-api
         </module>
         <module>young-im-spring-boot-starter/young-im-spring-boot-stater-adapter/young-im-adapter-registry</module>
         <module>young-im-spring-boot-starter/young-im-spring-boot-stater-adapter/young-im-adapter-config</module>
+        <module>young-im-adapter</module>
     </modules>
 
     <properties>

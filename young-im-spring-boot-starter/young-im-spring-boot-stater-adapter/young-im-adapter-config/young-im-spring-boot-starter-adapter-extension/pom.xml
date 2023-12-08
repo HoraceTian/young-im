@@ -9,7 +9,7 @@
         <relativePath>../../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>young-im-adapter-config-environment</artifactId>
+    <artifactId>young-im-spring-boot-starter-adapter-extension</artifactId>
 
     <properties>
         <maven.compiler.source>17</maven.compiler.source>

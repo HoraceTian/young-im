@@ -29,7 +29,7 @@
         </dependency>
         <dependency>
             <groupId>cn.young.im</groupId>
-            <artifactId>young-im-adapter-config-environment</artifactId>
+            <artifactId>young-im-spring-boot-starter-adapter-extension</artifactId>
             <version>1.0</version>
         </dependency>
         <dependency>
@@ -43,7 +43,7 @@
         </dependency>
         <dependency>
             <groupId>cn.young.im</groupId>
-            <artifactId>young-im-adapter-config-api</artifactId>
+            <artifactId>young-im-spring-boot-starter-adapter-config</artifactId>
             <version>1.0</version>
         </dependency>
         <!--业务 start-->
