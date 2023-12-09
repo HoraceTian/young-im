@@ -6,16 +6,11 @@
         <groupId>cn.young.im</groupId>
         <artifactId>young-im</artifactId>
         <version>1.0</version>
-        <relativePath>../../../pom.xml</relativePath>
+        <relativePath>../../../../pom.xml</relativePath>
     </parent>
 
     <artifactId>young-im-spring-boot-starter-adapter-extension</artifactId>
 
-    <properties>
-        <maven.compiler.source>17</maven.compiler.source>
-        <maven.compiler.target>17</maven.compiler.target>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
     <dependencies>
         <dependency>
             <groupId>cn.young.im</groupId>
