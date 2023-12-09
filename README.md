@@ -2,7 +2,7 @@
   Young-IM 
 </h1>
 <p align="center">
-	<strong>一个基于微内核架构的即时通信系统</strong>
+	<strong>一个基于微内核架构的即时通信系统 （起步阶段）</strong>
 </p>
 <p align="center">
     <a target="_blank" href="https://github.com/apache/shenyu/blob/master/LICENSE">
