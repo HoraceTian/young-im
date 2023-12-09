@@ -10,19 +10,23 @@
         <relativePath>../../pom.xml</relativePath>
     </parent>
 
-    <artifactId>young-im-spring-boot-stater-adapter</artifactId>
+    <artifactId>young-im-spring-boot-starter-extension</artifactId>
 
     <dependencies>
+        <!--业务 start-->
         <dependency>
             <groupId>cn.young.im</groupId>
             <artifactId>young-im-common</artifactId>
-            <version>${project.version}</version>
+            <version>1.0</version>
         </dependency>
+        <!--业务 end-->
 
+        <!--component start-->
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
+            <groupId>com.baomidou</groupId>
+            <artifactId>mybatis-plus-boot-starter</artifactId>
         </dependency>
+        <!--component end-->
     </dependencies>
 
 </project>
