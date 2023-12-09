@@ -12,11 +12,27 @@
     <modules>
         <module>young-im-common</module>
         <module>young-im-gateway</module>
-        <module>young-im-config</module>
         <module>young-im-biz</module>
-        <module>young-im-netty</module>
+        <module>young-im-server</module>
         <module>young-im-admin</module>
         <module>young-im-message</module>
+        <module>young-im-spi</module>
+        <module>young-im-plugin</module>
+        <module>young-im-plugin/young-im-plugin-api</module>
+        <module>young-im-spring-boot-starter</module>
+        <module>young-im-plugin/young-im-plugin-base</module>
+        <module>young-im-spring-boot-starter/young-im-spring-boot-starter-plugin</module>
+        <module>young-im-spring-boot-starter/young-im-spring-boot-starter-compose</module>
+        <module>young-im-plugin/young-im-plugin-privilege</module>
+        <module>
+            young-im-spring-boot-starter/young-im-spring-boot-starter-plugin/young-im-spring-boot-starter-plugin-privilege
+        </module>
+        <module>young-im-spring-boot-starter/young-im-spring-boot-stater-adapter</module>
+
+        <module>young-im-spring-boot-starter/young-im-spring-boot-stater-adapter</module>
+
+        <module>young-im-spring-boot-starter/young-im-spring-boot-stater-adapter/young-im-adapter-registry</module>
+        <module>young-im-spring-boot-starter/young-im-spring-boot-stater-adapter/young-im-adapter-config</module>
     </modules>
 
     <properties>
@@ -28,15 +44,17 @@
         <logback-classic.version>1.4.11</logback-classic.version>
         <cglib.version>3.3.0</cglib.version>
         <lombok.version>1.18.28</lombok.version>
-        <spring.boot.version>2.7.17</spring.boot.version>
-        <spring.cloud.version>2021.0.8</spring.cloud.version>
+        <spring.boot.version>2.6.13</spring.boot.version>
+        <!--<spring.cloud.version>2021.0.8</spring.cloud.version>-->
+        <spring.cloud.version>2021.0.5</spring.cloud.version>
         <commons.lang3.version>3.12.0</commons.lang3.version>
         <commons.pool2.version>2.11.1</commons.pool2.version>
         <disruptor.version>3.4.0</disruptor.version>
         <guava.version>31.1-jre</guava.version>
         <swagger.version>3.0.0</swagger.version>
         <knife4j.version>3.0.3</knife4j.version>
-        <spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>
+        <!--<spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>-->
+        <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
         <jetbrains.annotation.version>24.0.1</jetbrains.annotation.version>
         <netty.version>4.1.90.Final</netty.version>
         <young-im-common.version>1.0</young-im-common.version>
@@ -47,6 +65,10 @@
         <sharding-jdbc.version>4.1.1</sharding-jdbc.version>
         <redisson.version>3.20.0</redisson.version>
         <hutool.version>5.5.1</hutool.version>
+        <jaxb.api.version>2.3.1</jaxb.api.version>
+        <mockito.version>3.5.15</mockito.version>
+        <awaitility.version>4.0.3</awaitility.version>
+        <guava.version>31.1-jre</guava.version>
     </properties>
     <developers>
         <developer>
@@ -90,6 +112,78 @@
                 <artifactId>mysql-connector-java</artifactId>
                 <version>${mysql.version}</version>
             </dependency>
+
+            <dependency>
+                <groupId>com.google.guava</groupId>
+                <artifactId>guava</artifactId>
+                <version>${guava.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
+
+    <dependencies>
+        <dependency>
+            <groupId>com.google.guava</groupId>
+            <artifactId>guava</artifactId>
+            <exclusions>
+                <exclusion>
+                    <groupId>com.google.re2j</groupId>
+                    <artifactId>re2j</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>jcl-over-slf4j</artifactId>
+        </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.junit.vintage</groupId>
+            <artifactId>junit-vintage-engine</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.hamcrest</groupId>
+            <artifactId>hamcrest-library</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-junit-jupiter</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-core</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.mockito</groupId>
+            <artifactId>mockito-inline</artifactId>
+            <version>${mockito.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.awaitility</groupId>
+            <artifactId>awaitility</artifactId>
+            <version>${awaitility.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>javax.xml.bind</groupId>
+            <artifactId>jaxb-api</artifactId>
+            <version>${jaxb.api.version}</version>
+        </dependency>
+    </dependencies>
 </project>
