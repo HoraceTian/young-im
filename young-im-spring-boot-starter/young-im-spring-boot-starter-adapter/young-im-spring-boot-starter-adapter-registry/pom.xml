@@ -19,6 +19,11 @@
             <artifactId>young-im-common</artifactId>
             <version>${project.version}</version>
         </dependency>
+        <dependency>
+            <groupId>cn.young.im</groupId>
+            <artifactId>young-im-spi</artifactId>
+            <version>${project.version}</version>
+        </dependency>
         <!--业务 end -->
 
         <!--component start-->

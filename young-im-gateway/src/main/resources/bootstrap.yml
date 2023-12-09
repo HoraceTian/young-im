@@ -25,3 +25,14 @@ spring:
         password: ${NACOS_PASSWORD}
         group: ${NACOS_GROUP}
 
+
+young:
+  im:
+    registry:
+      mode: AP
+      registryType: NACOS
+      nacos:
+        server-addr: ${NACOS_CONFIG_SERVER}
+        username: ${NACOS_NAMESPACE}
+        password: ${NACOS_PASSWORD}
+

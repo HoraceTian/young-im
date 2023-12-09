@@ -9,5 +9,5 @@ import org.springframework.context.annotation.Configuration;
  * @date 2023/12/9
  */
 @Configuration
-public class AdapterRegistryConfiguration {
+public class ServiceRegistryAdapterConfiguration {
 }
