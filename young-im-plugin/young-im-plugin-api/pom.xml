@@ -20,7 +20,7 @@
         <dependency>
             <groupId>cn.young.im</groupId>
             <artifactId>young-im-common</artifactId>
-            <version>${young-im-common.version}</version>
+            <version>${project.version}</version>
         </dependency>
         <dependency>
             <groupId>org.springframework</groupId>

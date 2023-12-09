@@ -10,6 +10,7 @@
     </parent>
     <artifactId>young-im-common</artifactId>
     <dependencies>
+        <!--utils start-->
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
@@ -32,5 +33,6 @@
             <artifactId>fastjson2</artifactId>
             <version>${fastjson2.version}</version>
         </dependency>
+        <!--utils end-->
     </dependencies>
 </project>
