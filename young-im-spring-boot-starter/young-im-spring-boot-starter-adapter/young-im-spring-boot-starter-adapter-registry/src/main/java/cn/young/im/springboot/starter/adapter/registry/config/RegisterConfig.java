@@ -1,5 +1,7 @@
 package cn.young.im.springboot.starter.adapter.registry.config;
 
+import lombok.Data;
+
 import java.util.Properties;
 
 /**
@@ -8,6 +10,7 @@ import java.util.Properties;
  * @description 注册配置
  * @date 2023/12/9
  */
+@Data
 public class RegisterConfig {
 
     /**
@@ -26,7 +29,7 @@ public class RegisterConfig {
     private String serverLists;
 
     /**
-     * 其他配置
+     * Nacos
      */
-    private Properties props;
+    private NacosConfig nacos;
 }

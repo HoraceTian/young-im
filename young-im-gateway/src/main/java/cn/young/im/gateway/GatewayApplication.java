@@ -1,6 +1,10 @@
 package cn.young.im.gateway;
 
 import cn.young.im.config.api.ConfigCenterClientFactory;
+import cn.young.im.springboot.starter.adapter.registry.InstanceRegistryService;
+import cn.young.im.springboot.starter.adapter.registry.adapter.NacosInstanceRegistryService;
+import cn.young.im.springboot.starter.adapter.registry.config.NacosConfig;
+import cn.young.im.springboot.starter.adapter.registry.config.RegisterConfig;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -24,6 +28,21 @@ public class GatewayApplication implements CommandLineRunner {
 
     public static void main(String[] args) {
         SpringApplication.run(GatewayApplication.class);
+
+        NacosConfig nacos = new NacosConfig();
+        nacos.setNamespace("538350b3-5628-440e-b221-0fffcc6cdf55");
+        nacos.setUsername("nacos");
+        nacos.setPassword("thr010410");
+        nacos.setGroup("im");
+
+        RegisterConfig config = new RegisterConfig();
+        config.setMode("AP");
+        config.setRegistryType("nacos");
+        config.setServerLists("124.222.135.79:8848");
+        config.setNacos(nacos);
+
+        InstanceRegistryService instanceRegistryService = new NacosInstanceRegistryService();
+        instanceRegistryService.init(config);
     }
 
     @Override

@@ -1,6 +1,8 @@
 package cn.young.im.springboot.starter.adapter.registry;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.Getter;
 
 /**
  * 作者：沈自在 <a href="https://www.szz.tax">Blog</a>
@@ -24,12 +26,12 @@ public class Instance {
     /**
      * 实例健康状态
      */
-    private boolean healthy;
+    private Status status;
 
     /**
      * 权重
      */
-    private double weight;
+    private double weight = 1.0D;
 
     /**
      * 客户端名称
