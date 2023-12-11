@@ -26,7 +26,7 @@ public abstract class AbstractConfigCenterClient implements ConfigCenterClient {
     }
 
     /**
-     * 不同的配置中心适配器徐亚实现该方法，对特定的配置进行配置变更监听并更新
+     * 不同的配置中心适配器去实现该方法，对特定的配置进行配置变更监听并更新
      */
     protected abstract void initListener(ApplicationContext applicationContext);
 
