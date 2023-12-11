@@ -27,9 +27,14 @@ public class ConfigCenterClientFactoryConfiguration {
 
     @Bean
     public NacosConfigCenterClient nacosConfigCenterClient(ApplicationContext applicationContext) throws NacosException {
+
+
+        // 2. 装填配置
         Properties properties = new Properties();
         properties.put("serverAddr", System.getenv("NACOS_CONFIG_SERVER"));
         properties.put("namespace", System.getenv("NACOS_NAMESPACE"));
+        properties.put("username", System.getenv("NACOS_USERNAME"));
+        properties.put("password", System.getenv("NACOS_PASSWORD"));
         ConfigService configService = NacosFactory.createConfigService(properties);
         return new NacosConfigCenterClient(configService, applicationContext);
     }
