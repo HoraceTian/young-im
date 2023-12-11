@@ -50,7 +50,6 @@
         <cglib.version>3.3.0</cglib.version>
         <lombok.version>1.18.28</lombok.version>
         <spring.boot.version>2.6.13</spring.boot.version>
-        <!--<spring.cloud.version>2021.0.8</spring.cloud.version>-->
         <spring.cloud.version>2021.0.5</spring.cloud.version>
         <commons.lang3.version>3.12.0</commons.lang3.version>
         <commons.pool2.version>2.11.1</commons.pool2.version>
@@ -58,7 +57,6 @@
         <guava.version>31.1-jre</guava.version>
         <swagger.version>3.0.0</swagger.version>
         <knife4j.version>3.0.3</knife4j.version>
-        <!--<spring-cloud-alibaba.version>2022.0.0.0</spring-cloud-alibaba.version>-->
         <spring-cloud-alibaba.version>2021.0.5.0</spring-cloud-alibaba.version>
         <jetbrains.annotation.version>24.0.1</jetbrains.annotation.version>
         <netty.version>4.1.90.Final</netty.version>

@@ -32,7 +32,6 @@ public class AnnotationScanner {
      * @param basePackage 扫描包
      * @return 返回类与对应注解信息
      */
-
     public static Map<Class<?>, Annotation> scanClassByAnnotation(String basePackage, Class<? extends Annotation> annotationClas) {
         Map<Class<?>, Annotation> annotatedClassesMap = new HashMap<>();
         try {
