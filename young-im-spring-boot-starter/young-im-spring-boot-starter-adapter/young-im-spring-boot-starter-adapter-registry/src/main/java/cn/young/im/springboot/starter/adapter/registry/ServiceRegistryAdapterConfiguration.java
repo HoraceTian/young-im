@@ -1,5 +1,7 @@
 package cn.young.im.springboot.starter.adapter.registry;
 
+import cn.young.im.springboot.starter.adapter.registry.adapter.NacosInstanceRegistryService;
+import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -10,4 +12,9 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 public class ServiceRegistryAdapterConfiguration {
+
+    @Bean
+    public InstanceRegistryService instanceRegistryService(){
+        return new NacosInstanceRegistryService();
+    }
 }

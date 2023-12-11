@@ -3,14 +3,20 @@ package cn.young.im.springboot.starter.adapter.registry.adapter;
 import cn.young.im.common.exception.YoungImException;
 import cn.young.im.springboot.starter.adapter.registry.Instance;
 import cn.young.im.springboot.starter.adapter.registry.InstanceRegistryService;
+import cn.young.im.springboot.starter.adapter.registry.annotation.AutomaticRegistry;
 import cn.young.im.springboot.starter.adapter.registry.config.NacosConfig;
 import cn.young.im.springboot.starter.adapter.registry.config.RegisterConfig;
 import com.alibaba.nacos.api.exception.NacosException;
 import com.alibaba.nacos.api.naming.NamingFactory;
 import com.alibaba.nacos.api.naming.NamingService;
+import lombok.NonNull;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.BeansException;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Properties;
 
 /**
@@ -20,7 +26,10 @@ import java.util.Properties;
  * @date 2023/12/10
  */
 @Slf4j
-public class NacosInstanceRegistryService implements InstanceRegistryService {
+public class NacosInstanceRegistryService implements
+        InstanceRegistryService, ApplicationContextAware {
+
+    private ApplicationContext context;
 
     private NamingService namingService;
 
@@ -48,7 +57,16 @@ public class NacosInstanceRegistryService implements InstanceRegistryService {
             throw new YoungImException(e);
         }
 
+
+        Map<String, Object> beansWithAnnotation = context.getBeansWithAnnotation(AutomaticRegistry.class);
+
+        beansWithAnnotation.forEach((k ,v) -> {
+            System.out.println(k + "====" + v);
+        });
     }
+
+
+
 
     @Override
     public void registry(Instance instance) {
@@ -63,5 +81,10 @@ public class NacosInstanceRegistryService implements InstanceRegistryService {
             throw new RuntimeException(e);
         }
         return null;
+    }
+
+    @Override
+    public void setApplicationContext(@NonNull ApplicationContext context) throws BeansException {
+        this.context = context;
     }
 }

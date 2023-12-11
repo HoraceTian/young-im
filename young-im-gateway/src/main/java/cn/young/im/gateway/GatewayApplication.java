@@ -3,12 +3,14 @@ package cn.young.im.gateway;
 import cn.young.im.config.api.ConfigCenterClientFactory;
 import cn.young.im.springboot.starter.adapter.registry.InstanceRegistryService;
 import cn.young.im.springboot.starter.adapter.registry.adapter.NacosInstanceRegistryService;
+import cn.young.im.springboot.starter.adapter.registry.annotation.AutomaticRegistry;
 import cn.young.im.springboot.starter.adapter.registry.config.NacosConfig;
 import cn.young.im.springboot.starter.adapter.registry.config.RegisterConfig;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.context.ConfigurableApplicationContext;
 
 import javax.annotation.Resource;
 import java.util.concurrent.TimeUnit;
@@ -21,13 +23,14 @@ import java.util.concurrent.TimeUnit;
  */
 @EnableDiscoveryClient
 @SpringBootApplication
+@AutomaticRegistry
 public class GatewayApplication implements CommandLineRunner {
 
     @Resource
     private ConfigCenterClientFactory centerClientFactory;
 
     public static void main(String[] args) {
-        SpringApplication.run(GatewayApplication.class);
+        ConfigurableApplicationContext context = SpringApplication.run(GatewayApplication.class);
 
         NacosConfig nacos = new NacosConfig();
         nacos.setNamespace("538350b3-5628-440e-b221-0fffcc6cdf55");
@@ -41,7 +44,8 @@ public class GatewayApplication implements CommandLineRunner {
         config.setServerLists("124.222.135.79:8848");
         config.setNacos(nacos);
 
-        InstanceRegistryService instanceRegistryService = new NacosInstanceRegistryService();
+        InstanceRegistryService instanceRegistryService = context.getBean(InstanceRegistryService.class);
+
         instanceRegistryService.init(config);
     }
 
