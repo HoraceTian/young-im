@@ -1,5 +1,7 @@
 package cn.young.im.springboot.starter.adapter.registry.annotation;
 
+import cn.young.im.common.constants.YoungConst;
+
 import java.lang.annotation.*;
 
 /**
@@ -13,5 +15,23 @@ import java.lang.annotation.*;
 @Documented
 public @interface AutomaticRegistry {
 
+    /**
+     * 服务名
+     */
+    String serviceName() default YoungConst.DEFAULT;
 
+    /**
+     * 主机地址
+     */
+    String host() default YoungConst.DEFAULT;
+
+    /**
+     * 端口
+     */
+    String port() default YoungConst.DEFAULT;
+
+    /**
+     * 权重
+     */
+    double weight() default 1.0D;
 }

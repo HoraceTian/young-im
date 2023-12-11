@@ -1,5 +1,6 @@
 package cn.young.im.springboot.starter.adapter.registry;
 
+import cn.young.im.spi.SPI;
 import cn.young.im.springboot.starter.adapter.registry.config.RegisterConfig;
 
 import java.util.List;
@@ -10,6 +11,7 @@ import java.util.List;
  * @description
  * @date 2023/12/9
  */
+@SPI("nacos")
 public interface InstanceRegistryService {
 
     /**
@@ -22,11 +24,11 @@ public interface InstanceRegistryService {
     /**
      * 注册
      */
-    void registry(Instance instance);
+    void registry(InstanceEntity instanceEntity);
 
 
     /**
      * 获取实例
      */
-    List<Instance> listOfInstance(String tenant);
+    List<InstanceEntity> listOfInstance(String tenant);
 }

@@ -1,6 +1,8 @@
 package cn.young.im.springboot.starter.adapter.registry.config;
 
 import lombok.Data;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Configuration;
 
 import java.util.Properties;
 
@@ -11,6 +13,8 @@ import java.util.Properties;
  * @date 2023/12/9
  */
 @Data
+@Configuration
+@ConfigurationProperties(prefix = "young.im.registry")
 public class RegisterConfig {
 
     /**

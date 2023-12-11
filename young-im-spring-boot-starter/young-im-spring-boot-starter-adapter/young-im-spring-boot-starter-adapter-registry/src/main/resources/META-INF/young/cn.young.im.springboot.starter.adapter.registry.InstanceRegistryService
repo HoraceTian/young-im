@@ -1,0 +1,1 @@
+nacos=cn.young.im.springboot.starter.adapter.registry.adapter.NacosInstanceRegistryService

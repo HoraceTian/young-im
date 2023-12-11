@@ -21,7 +21,7 @@
         </dependency>
         <dependency>
             <groupId>cn.young.im</groupId>
-            <artifactId>young-im-spi</artifactId>
+            <artifactId>young-im-spring-boot-starter-extension</artifactId>
             <version>${project.version}</version>
         </dependency>
         <!--业务 end -->
@@ -34,6 +34,10 @@
         <dependency>
             <groupId>com.alibaba.nacos</groupId>
             <artifactId>nacos-client</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter</artifactId>
         </dependency>
         <!--component end-->
     </dependencies>

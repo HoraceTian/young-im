@@ -1,8 +1,9 @@
 package cn.young.im.springboot.starter.adapter.registry;
 
-import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
-import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.experimental.Accessors;
 
 /**
  * 作者：沈自在 <a href="https://www.szz.tax">Blog</a>
@@ -11,7 +12,9 @@ import lombok.Getter;
  * @date 2023/12/9
  */
 @Data
-public class Instance {
+@Builder
+@Accessors(chain = true)
+public class InstanceEntity {
 
     /**
      * 主机地址
@@ -21,7 +24,7 @@ public class Instance {
     /**
      * 端口号
      */
-    private String port;
+    private int port;
 
     /**
      * 实例健康状态
@@ -36,5 +39,5 @@ public class Instance {
     /**
      * 客户端名称
      */
-    private String clientName;
+    private String serviceName;
 }

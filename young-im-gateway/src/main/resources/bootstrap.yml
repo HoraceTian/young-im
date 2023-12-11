@@ -29,10 +29,13 @@ spring:
 young:
   im:
     registry:
+      serverLists: ${NACOS_CONFIG_SERVER}
       mode: AP
       registryType: NACOS
       nacos:
+        namespace: ${NACOS_NAMESPACE}
         server-addr: ${NACOS_CONFIG_SERVER}
         username: ${NACOS_NAMESPACE}
         password: ${NACOS_PASSWORD}
+        group: ${NACOS_GROUP}
 
