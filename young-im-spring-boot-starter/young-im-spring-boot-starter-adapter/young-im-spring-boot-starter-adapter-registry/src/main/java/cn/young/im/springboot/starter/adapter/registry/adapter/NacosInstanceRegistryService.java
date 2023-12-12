@@ -72,7 +72,7 @@ public class NacosInstanceRegistryService implements
 
         // 4. 提取注解发起注册
         Map<Class<?>, Annotation> classAnnotationMap =
-                AnnotationScanner.scannerClassByAnnotation(BASE_PACKAGE, AutomaticRegistry.class);
+                AnnotationScanner.scanClassByAnnotation(BASE_PACKAGE, AutomaticRegistry.class);
         for (Annotation annotation : classAnnotationMap.values()) {
             AutomaticRegistry registry = (AutomaticRegistry) annotation;
 
