@@ -12,17 +12,4 @@
 
     <artifactId>young-im-spring-boot-starter-adapter</artifactId>
 
-    <dependencies>
-        <dependency>
-            <groupId>cn.young.im</groupId>
-            <artifactId>young-im-common</artifactId>
-            <version>${project.version}</version>
-        </dependency>
-
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-context</artifactId>
-        </dependency>
-    </dependencies>
-
 </project>

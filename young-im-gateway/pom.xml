@@ -50,6 +50,12 @@
             <artifactId>young-im-spring-boot-starter-extension</artifactId>
             <version>${project.version}</version>
         </dependency>
+
+        <!--<dependency>-->
+        <!--    <groupId>cn.young.im</groupId>-->
+        <!--    <artifactId>young-im-spring-boot-starter-adapter-registry</artifactId>-->
+        <!--    <version>1.0</version>-->
+        <!--</dependency>-->
         <!--业务 end-->
 
         <!--        undertow服务器-->

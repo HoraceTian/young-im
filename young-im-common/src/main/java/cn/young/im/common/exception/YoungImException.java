@@ -7,8 +7,12 @@ package cn.young.im.common.exception;
  * @Author yanceysong
  * @Version 1.0
  */
-public class YoungImException extends RuntimeException{
+public class YoungImException extends RuntimeException {
     public YoungImException(String errorMsg) {
         super(errorMsg);
+    }
+
+    public YoungImException(final Throwable e) {
+        super(e);
     }
 }
