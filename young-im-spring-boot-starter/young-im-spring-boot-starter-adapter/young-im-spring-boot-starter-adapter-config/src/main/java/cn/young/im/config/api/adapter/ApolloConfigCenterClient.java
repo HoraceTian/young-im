@@ -2,6 +2,7 @@ package cn.young.im.config.api.adapter;
 
 import cn.young.im.config.api.AbstractConfigCenterClient;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.context.ApplicationContext;
 import org.springframework.stereotype.Service;
 
 /**
@@ -14,13 +15,23 @@ import org.springframework.stereotype.Service;
 @Service
 @Slf4j
 public class ApolloConfigCenterClient extends AbstractConfigCenterClient {
-    @Override
-    public String getConfig(String configKey, String groupName) {
-        return configCache.get(configKey);
+    public ApolloConfigCenterClient(ApplicationContext applicationContext) {
+        super();
     }
 
     @Override
-    public void refreshConfigCache(String configKey, String newValue) {
-        configCache.put(configKey, newValue);
+    public String getConfig(String configKey, String groupName) {
+        return null;
+    }
+
+
+    @Override
+    protected void initListener(ApplicationContext applicationContext) {
+
+    }
+
+    @Override
+    protected void configMapping(ApplicationContext applicationContext) {
+
     }
 }

@@ -4,11 +4,9 @@ import cn.young.im.config.api.adapter.NacosConfigCenterClient;
 import com.alibaba.nacos.api.NacosFactory;
 import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.exception.NacosException;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnBean;
-import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.env.ConfigurableEnvironment;
 
 import java.util.Properties;
 
@@ -28,8 +26,16 @@ public class ConfigCenterClientFactoryConfiguration {
     }
 
     @Bean
-    public NacosConfigCenterClient nacosConfigCenterClient(ConfigurableEnvironment environment) throws NacosException {
-        ConfigService configService = NacosFactory.createConfigService(System.getenv("NACOS_CONFIG_SERVER"));
-        return new NacosConfigCenterClient(configService);
+    public NacosConfigCenterClient nacosConfigCenterClient(ApplicationContext applicationContext) throws NacosException {
+
+
+        // 2. 装填配置
+        Properties properties = new Properties();
+        properties.put("serverAddr", System.getenv("NACOS_CONFIG_SERVER"));
+        properties.put("namespace", System.getenv("NACOS_NAMESPACE"));
+        properties.put("username", System.getenv("NACOS_USERNAME"));
+        properties.put("password", System.getenv("NACOS_PASSWORD"));
+        ConfigService configService = NacosFactory.createConfigService(properties);
+        return new NacosConfigCenterClient(configService, applicationContext);
     }
 }

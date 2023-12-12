@@ -16,11 +16,4 @@ public interface ConfigCenterClient {
      * @return 配置内容
      */
     String getConfig(String configKey, String groupName);
-
-    /**
-     * 更新本地配置缓存
-     *
-     * @param configKey 配置项名字
-     */
-    void refreshConfigCache(String configKey,String newValue);
 }

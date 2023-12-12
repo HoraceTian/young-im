@@ -19,8 +19,6 @@ public class ConfigCenterClientFactory {
     private volatile static ConfigCenterClient INSTANCE;
     @Autowired
     private NacosConfigCenterClient nacosConfigCenterClient;
-//    @Resource
-//    private ApolloConfigCenterClient apolloConfigCenterClient;
 
     /**
      * 获取配置中心客户端的单例

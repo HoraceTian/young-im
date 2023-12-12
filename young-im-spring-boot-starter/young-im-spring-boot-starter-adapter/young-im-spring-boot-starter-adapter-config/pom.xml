@@ -19,12 +19,12 @@
             <artifactId>young-im-common</artifactId>
             <version>${project.version}</version>
         </dependency>
-        <!--业务 end-->
         <dependency>
-            <groupId>com.googlecode.concurrentlinkedhashmap</groupId>
-            <artifactId>concurrentlinkedhashmap-lru</artifactId>
-            <version>1.4.2</version>
+            <groupId>cn.young.im</groupId>
+            <artifactId>young-im-spring-boot-starter-extension</artifactId>
+            <version>${project.version}</version>
         </dependency>
+        <!--业务 end-->
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
