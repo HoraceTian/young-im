@@ -29,8 +29,6 @@
         </module>
         <module>young-im-spring-boot-starter/young-im-spring-boot-starter-adapter</module>
 
-        <module>young-im-spring-boot-starter/young-im-spring-boot-starter-adapter</module>
-
         <module>young-im-spring-boot-starter/young-im-spring-boot-starter-extension</module>
         <module>
             young-im-spring-boot-starter/young-im-spring-boot-starter-adapter/young-im-spring-boot-starter-adapter-config
