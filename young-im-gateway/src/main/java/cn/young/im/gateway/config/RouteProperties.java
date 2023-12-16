@@ -1,11 +1,10 @@
 package cn.young.im.gateway.config;
 
+import cn.young.im.gateway.service.DynamicRouteService;
 import cn.young.im.springboot.starter.adapter.config.ConfigServerConfigurationProperties;
 import cn.young.im.springboot.starter.adapter.config.ConfigType;
 import lombok.Data;
 import org.springframework.cloud.gateway.route.RouteDefinition;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
@@ -19,7 +18,8 @@ import java.util.List;
 @Data
 @Component
 @ConfigServerConfigurationProperties
-        (configKey = "route", groupId = "young_im", autoRefreshed = true, type = ConfigType.JSON)
+        (configKey = "router", groupId = "young_im", autoRefreshed = true, type = ConfigType.JSON,
+                callbackClazz = DynamicRouteService.class)
 public class RouteProperties {
     private List<RouteDefinition> route;
 }

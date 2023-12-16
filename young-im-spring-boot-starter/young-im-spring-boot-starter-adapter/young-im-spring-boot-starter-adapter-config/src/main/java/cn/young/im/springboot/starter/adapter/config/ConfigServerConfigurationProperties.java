@@ -1,6 +1,7 @@
 package cn.young.im.springboot.starter.adapter.config;
 
 import java.lang.annotation.*;
+import java.util.function.Function;
 
 /**
  * 作者：沈自在 <a href="https://www.szz.tax">Blog</a>
@@ -40,4 +41,9 @@ public @interface ConfigServerConfigurationProperties {
      * 是否自动刷新
      */
     boolean autoRefreshed() default false;
+
+    /**
+     * 回调类型
+     */
+    Class<?> callbackClazz();
 }

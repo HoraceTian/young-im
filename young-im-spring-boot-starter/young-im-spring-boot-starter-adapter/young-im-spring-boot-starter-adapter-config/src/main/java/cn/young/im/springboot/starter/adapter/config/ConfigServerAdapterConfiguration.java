@@ -4,6 +4,7 @@ import cn.young.im.common.exception.YoungImException;
 import cn.young.im.spi.ExtensionFactory;
 import cn.young.im.springboot.starter.adapter.config.bind.ConfigServerConfigurationBind;
 import cn.young.im.springboot.starter.adapter.config.repository.NacosConfigServerRepository;
+import cn.young.im.springboot.starter.extension.spring.ApplicationContextHolder;
 import com.alibaba.nacos.api.NacosFactory;
 import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.exception.NacosException;
@@ -48,14 +49,6 @@ public class ConfigServerAdapterConfiguration {
     }
 
     /**
-     * 配置绑定器
-     */
-    @Bean
-    public ConfigServerConfigurationBind configServerConfigurationBind(ConfigPropertyResolver configPropertyResolver) {
-        return new ConfigServerConfigurationBind(configPropertyResolver);
-    }
-
-    /**
      * 配置中心仓储
      */
     @Bean
@@ -72,6 +65,19 @@ public class ConfigServerAdapterConfiguration {
         return repository;
     }
 
+    /**
+     * 配置绑定器
+     */
+    @Bean
+    public ConfigServerConfigurationBind configServerConfigurationBind(
+            ConfigPropertyResolver configPropertyResolver,
+            ObjectProvider<ConfigServerRepository> repositoryProvider, ApplicationContextHolder contextHolder) {
+        return new ConfigServerConfigurationBind(configPropertyResolver, repositoryProvider.getIfAvailable(), contextHolder);
+    }
+
+    /**
+     * 创建 Nacos Config Service
+     */
     private ConfigService createNacosConfigService() {
         ConfigService configService = null;
         try {

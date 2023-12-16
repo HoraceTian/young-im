@@ -1,5 +1,6 @@
 package cn.young.im.springboot.starter.extension.spring;
 
+import lombok.Data;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -10,6 +11,7 @@ import org.springframework.context.ApplicationContextAware;
  * @description 感知 Application Context 全局使用
  * @date 2023/12/16
  */
+@Data
 public class ApplicationContextHolder implements ApplicationContextAware {
 
     /**

@@ -19,12 +19,17 @@ public class NacosConfigServerRepository implements ConfigServerRepository {
     private final ConfigService configService;
 
     @Override
-    public String getConfig(String configKey, String groupName) {
+    public String getConfig(String configKey, String groupId) {
         try {
-            return configService.getConfig(configKey, groupName, 5000);
+            return configService.getConfig(configKey, groupId, 5000);
         } catch (NacosException e) {
             log.error(e.getErrMsg(), e);
         }
         return null;
+    }
+
+    @Override
+    public ConfigService getConfigService() {
+        return configService;
     }
 }

@@ -52,7 +52,7 @@ public enum ConfigType {
      * 获取默认类型
      */
     public static ConfigType getDefaultType() {
-        return TEXT;
+        return YAML;
     }
 
     /**

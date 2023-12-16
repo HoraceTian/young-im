@@ -15,7 +15,7 @@
         <module>young-im-biz</module>
         <module>young-im-server</module>
         <module>young-im-admin</module>
-        <module>young-im-message</module>
+        <module>young-im-executor</module>
         <module>young-im-spi</module>
         <module>young-im-plugin</module>
         <module>young-im-plugin/young-im-plugin-api</module>
