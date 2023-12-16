@@ -1,4 +1,4 @@
-package cn.young.im.config.environment;
+package cn.young.im.springboot.starter.extension.config.environment;
 
 import cn.hutool.core.io.FileUtil;
 import cn.young.im.common.exception.YoungImException;

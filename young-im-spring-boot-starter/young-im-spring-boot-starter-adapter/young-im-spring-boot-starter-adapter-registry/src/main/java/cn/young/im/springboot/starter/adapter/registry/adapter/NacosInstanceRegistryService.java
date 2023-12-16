@@ -9,7 +9,7 @@ import cn.young.im.springboot.starter.adapter.registry.Status;
 import cn.young.im.springboot.starter.adapter.registry.annotation.AutomaticRegistry;
 import cn.young.im.springboot.starter.adapter.registry.config.NacosConfig;
 import cn.young.im.springboot.starter.adapter.registry.config.RegisterConfig;
-import cn.young.im.util.AnnotationScanner;
+import cn.young.im.springboot.starter.extension.util.AnnotationScanner;
 import com.alibaba.nacos.api.exception.NacosException;
 import com.alibaba.nacos.api.naming.NamingFactory;
 import com.alibaba.nacos.api.naming.NamingService;

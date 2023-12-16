@@ -1,5 +1,5 @@
 org.springframework.boot.env.EnvironmentPostProcessor=\
-  cn.young.im.config.environment.PrivacyConfigurationLoader
+  cn.young.im.springboot.starter.extension.config.environment.PrivacyConfigurationLoader
 
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.young.im.spi.SpiConfiguration
+  cn.young.im.springboot.starter.extension.ExtensionAutoConfiguration

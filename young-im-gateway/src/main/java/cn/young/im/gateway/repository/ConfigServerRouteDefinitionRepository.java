@@ -1,10 +1,22 @@
 //package cn.young.im.gateway.repository;
 //
+//import cn.young.im.common.exception.YoungImException;
+//import cn.young.im.config.api.adapter.NacosConfigCenterClient;
+//import cn.young.im.gateway.config.RouteProperties;
+//import com.alibaba.fastjson2.JSON;
+//import com.alibaba.nacos.api.config.annotation.NacosConfigurationProperties;
 //import org.springframework.cloud.gateway.route.RouteDefinition;
 //import org.springframework.cloud.gateway.route.RouteDefinitionRepository;
 //import org.springframework.stereotype.Component;
 //import reactor.core.publisher.Flux;
 //import reactor.core.publisher.Mono;
+//
+//import javax.annotation.PostConstruct;
+//import javax.annotation.Resource;
+//import java.util.LinkedHashMap;
+//import java.util.Map;
+//
+//import static java.util.Collections.synchronizedMap;
 //
 ///**
 // * 作者：沈自在 <a href="https://www.szz.tax">Blog</a>
@@ -14,18 +26,42 @@
 // */
 //@Component
 //public class ConfigServerRouteDefinitionRepository implements RouteDefinitionRepository {
+//
+//    public static final Map<String, RouteDefinition> routes = synchronizedMap(new LinkedHashMap<>());
+//
+//    @Resource
+//    private NacosConfigCenterClient nacosConfigCenterClient;
+//
+//    @PostConstruct
+//    public void initRoutes() {
+//        String configJson = nacosConfigCenterClient.getConfig("router", "young_im");
+//        RouteProperties routeProperties = JSON.parseObject(configJson, RouteProperties.class);
+//        for (RouteDefinition route : routeProperties.getRoute()) {
+//            routes.put(route.getId(), route);
+//        }
+//    }
+//
 //    @Override
 //    public Flux<RouteDefinition> getRouteDefinitions() {
-//        return null;
+//        return Flux.fromIterable(routes.values());
 //    }
 //
 //    @Override
 //    public Mono<Void> save(Mono<RouteDefinition> route) {
-//        return null;
+//        return route.flatMap(r -> {
+//            routes.put(r.getId(), r);
+//            return Mono.empty();
+//        });
 //    }
 //
 //    @Override
 //    public Mono<Void> delete(Mono<String> routeId) {
-//        return null;
+//        return routeId.flatMap(id -> {
+//            if (routes.containsKey(id)) {
+//                routes.remove(id);
+//                return Mono.empty();
+//            }
+//            return Mono.defer(() -> Mono.error(new YoungImException("RouteDefinition not found: " + routeId)));
+//        });
 //    }
 //}

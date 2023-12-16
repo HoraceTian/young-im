@@ -1,2 +1,2 @@
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  cn.young.im.config.api.ConfigCenterClientFactoryConfiguration
+  cn.young.im.springboot.starter.adapter.config.ConfigServerAdapterConfiguration

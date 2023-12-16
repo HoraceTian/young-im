@@ -28,6 +28,8 @@ spring:
 
 young:
   im:
+    config:
+      configServerType: nacos
     registry:
       serverLists: ${NACOS_CONFIG_SERVER}
       mode: AP
