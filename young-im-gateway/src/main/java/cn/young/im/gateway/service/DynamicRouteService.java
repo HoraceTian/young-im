@@ -1,5 +1,6 @@
 package cn.young.im.gateway.service;
 
+import cn.young.im.springboot.starter.adapter.config.ConfigRefreshCallBack;
 import lombok.NonNull;
 import org.springframework.cloud.gateway.event.RefreshRoutesEvent;
 import org.springframework.context.ApplicationEventPublisher;
@@ -13,7 +14,8 @@ import org.springframework.stereotype.Component;
  * @date 2023/12/4
  */
 @Component
-public class DynamicRouteService implements ApplicationEventPublisherAware {
+public class DynamicRouteService implements
+        ApplicationEventPublisherAware, ConfigRefreshCallBack {
 
     /**
      * 事件发布器
@@ -30,5 +32,13 @@ public class DynamicRouteService implements ApplicationEventPublisherAware {
      */
     public void refreshRoute() {
         publisher.publishEvent(new RefreshRoutesEvent(this));
+    }
+
+    /**
+     * 配置刷新回调
+     */
+    @Override
+    public void refresh() {
+        refreshRoute();
     }
 }

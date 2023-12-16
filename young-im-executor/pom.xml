@@ -7,7 +7,7 @@
         <artifactId>young-im</artifactId>
         <version>1.0</version>
     </parent>
-    <artifactId>young-im-message</artifactId>
+    <artifactId>young-im-executor</artifactId>
     <version>1.0</version>
     <name>young-im-message</name>
     <description>young-im-message</description>

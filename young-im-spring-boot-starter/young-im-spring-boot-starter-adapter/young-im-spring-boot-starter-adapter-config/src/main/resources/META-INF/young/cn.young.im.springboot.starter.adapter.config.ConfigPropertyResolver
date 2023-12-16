@@ -1,0 +1,1 @@
+nacos=cn.young.im.springboot.starter.adapter.config.resolver.NacosConfigPropertyResolver

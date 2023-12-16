@@ -22,9 +22,9 @@ public class ServiceRegistryAdapterConfiguration {
      * 实例注册服务
      */
     @Bean
-    public InstanceRegistryService instanceRegistryService(RegisterConfig registerConfig, SpiExtensionFactory spiExtensionFactory) {
+    public InstanceRegistryService instanceRegistryService(RegisterConfig registerConfig, ExtensionFactory extensionFactory) {
         InstanceRegistryService instanceRegistryService =
-                spiExtensionFactory.getExtension(registerConfig.getRegistryType(), InstanceRegistryService.class);
+                extensionFactory.getExtension(registerConfig.getRegistryType(), InstanceRegistryService.class);
         instanceRegistryService.init(registerConfig);
         return instanceRegistryService;
     }
