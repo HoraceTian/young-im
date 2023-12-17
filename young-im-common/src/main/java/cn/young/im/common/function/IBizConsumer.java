@@ -13,4 +13,5 @@ public interface IBizConsumer<T, U> {
      * 双参数无返回值
      */
     void consumer(T t, U u);
+
 }
