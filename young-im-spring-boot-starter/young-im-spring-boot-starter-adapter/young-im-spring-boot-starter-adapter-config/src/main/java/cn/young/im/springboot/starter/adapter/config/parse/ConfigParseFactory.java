@@ -1,5 +1,10 @@
 package cn.young.im.springboot.starter.adapter.config.parse;
 
+import cn.young.im.springboot.starter.adapter.config.ConfigType;
+import cn.young.im.springboot.starter.adapter.config.parse.handler.JsonConfigParseHandler;
+import cn.young.im.springboot.starter.adapter.config.parse.handler.PropertiesConfigParseHandler;
+import cn.young.im.springboot.starter.adapter.config.parse.handler.YamlConfigParseHandler;
+
 import java.util.LinkedHashMap;
 import java.util.Map;
 
@@ -15,7 +20,9 @@ public class ConfigParseFactory {
     private static final Map<String, IConfigParseHandler> handlers = synchronizedMap(new LinkedHashMap<>());
 
     static {
-        handlers.put("json", new JsonConfigParseHandler());
+        handlers.put(ConfigType.JSON.getType(), new JsonConfigParseHandler());
+        handlers.put(ConfigType.PROPERTIES.getType(), new PropertiesConfigParseHandler());
+        handlers.put(ConfigType.YAML.getType(), new YamlConfigParseHandler());
     }
 
     public static IConfigParseHandler acquireHandler(String type){

@@ -1,5 +1,6 @@
-package cn.young.im.springboot.starter.adapter.config.parse;
+package cn.young.im.springboot.starter.adapter.config.parse.handler;
 
+import cn.young.im.springboot.starter.adapter.config.parse.IConfigParseHandler;
 import com.alibaba.fastjson2.JSON;
 import org.springframework.beans.BeanUtils;
 

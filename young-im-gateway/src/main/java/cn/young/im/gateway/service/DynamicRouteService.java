@@ -1,6 +1,6 @@
 package cn.young.im.gateway.service;
 
-import cn.young.im.springboot.starter.adapter.config.ConfigRefreshCallBack;
+import cn.young.im.springboot.starter.adapter.config.callback.ConfigRefreshCallBack;
 import lombok.NonNull;
 import org.springframework.cloud.gateway.event.RefreshRoutesEvent;
 import org.springframework.context.ApplicationEventPublisher;

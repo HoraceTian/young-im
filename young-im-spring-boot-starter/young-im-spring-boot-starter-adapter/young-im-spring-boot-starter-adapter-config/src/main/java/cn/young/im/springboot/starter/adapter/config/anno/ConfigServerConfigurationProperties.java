@@ -1,7 +1,9 @@
-package cn.young.im.springboot.starter.adapter.config;
+package cn.young.im.springboot.starter.adapter.config.anno;
+
+import cn.young.im.springboot.starter.adapter.config.ConfigType;
+import cn.young.im.springboot.starter.adapter.config.callback.EmptyConfigRefreshCallBack;
 
 import java.lang.annotation.*;
-import java.util.function.Function;
 
 /**
  * 作者：沈自在 <a href="https://www.szz.tax">Blog</a>
@@ -40,10 +42,10 @@ public @interface ConfigServerConfigurationProperties {
     /**
      * 是否自动刷新
      */
-    boolean autoRefreshed() default false;
+    boolean autoRefreshed() default true;
 
     /**
      * 回调类型
      */
-    Class<?> callbackClazz();
+    Class<?> callbackClazz() default EmptyConfigRefreshCallBack.class;
 }

@@ -1,4 +1,4 @@
-package cn.young.im.springboot.starter.adapter.config;
+package cn.young.im.springboot.starter.adapter.config.repository;
 
 import com.alibaba.nacos.api.config.ConfigService;
 

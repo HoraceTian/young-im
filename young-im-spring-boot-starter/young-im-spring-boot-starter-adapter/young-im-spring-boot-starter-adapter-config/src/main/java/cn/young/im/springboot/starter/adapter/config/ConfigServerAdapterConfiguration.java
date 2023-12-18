@@ -1,8 +1,9 @@
 package cn.young.im.springboot.starter.adapter.config;
 
 import cn.young.im.common.exception.YoungImException;
-import cn.young.im.spi.ExtensionFactory;
 import cn.young.im.springboot.starter.adapter.config.bind.ConfigServerConfigurationBind;
+import cn.young.im.springboot.starter.adapter.config.callback.EmptyConfigRefreshCallBack;
+import cn.young.im.springboot.starter.adapter.config.repository.ConfigServerRepository;
 import cn.young.im.springboot.starter.adapter.config.repository.NacosConfigServerRepository;
 import cn.young.im.springboot.starter.extension.spring.ApplicationContextHolder;
 import com.alibaba.nacos.api.NacosFactory;
@@ -14,7 +15,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import java.util.Objects;
 import java.util.Properties;
 
 /**
@@ -26,27 +26,6 @@ import java.util.Properties;
 @Slf4j
 @Configuration
 public class ConfigServerAdapterConfiguration {
-
-
-    /**
-     * 配置属性解析器
-     */
-    @Bean
-    public ConfigPropertyResolver configPropertyResolver(
-            @Value("${young.im.config.configServerType}") String configServerType,
-            ObjectProvider<ExtensionFactory> extensionFactoryProvider) {
-
-        // 1. 获取 SPI 工厂
-        ExtensionFactory extensionFactory = extensionFactoryProvider.getIfAvailable();
-
-        // 2. 判断 SPI 工厂
-        if (Objects.isNull(extensionFactory)) {
-            throw new YoungImException("inject SpiExtensionFactory occur error");
-        }
-
-        // 4. 选择 Resolver 类型
-        return extensionFactory.getExtension(configServerType, ConfigPropertyResolver.class);
-    }
 
     /**
      * 配置中心仓储
@@ -70,16 +49,23 @@ public class ConfigServerAdapterConfiguration {
      */
     @Bean
     public ConfigServerConfigurationBind configServerConfigurationBind(
-            ConfigPropertyResolver configPropertyResolver,
             ObjectProvider<ConfigServerRepository> repositoryProvider, ApplicationContextHolder contextHolder) {
-        return new ConfigServerConfigurationBind(configPropertyResolver, repositoryProvider.getIfAvailable(), contextHolder);
+        return new ConfigServerConfigurationBind(repositoryProvider.getIfAvailable(), contextHolder);
+    }
+
+    /**
+     * 空的配置文件回调实现
+     */
+    @Bean
+    public EmptyConfigRefreshCallBack emptyConfigRefreshCallBack() {
+        return new EmptyConfigRefreshCallBack();
     }
 
     /**
      * 创建 Nacos Config Service
      */
     private ConfigService createNacosConfigService() {
-        ConfigService configService = null;
+        ConfigService configService;
         try {
             Properties properties = new Properties();
             properties.put("serverAddr", System.getenv("NACOS_CONFIG_SERVER"));

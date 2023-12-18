@@ -1,4 +1,4 @@
-package cn.young.im.springboot.starter.adapter.config;
+package cn.young.im.springboot.starter.adapter.config.callback;
 
 /**
  * 作者：沈自在 <a href="https://www.szz.tax">Blog</a>

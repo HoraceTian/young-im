@@ -2,9 +2,8 @@ package cn.young.im.gateway.repository;
 
 import cn.young.im.common.exception.YoungImException;
 import cn.young.im.gateway.config.RouteProperties;
-import cn.young.im.springboot.starter.adapter.config.ConfigServerRepository;
+import cn.young.im.springboot.starter.adapter.config.repository.ConfigServerRepository;
 import com.alibaba.fastjson2.JSON;
-import com.alibaba.nacos.api.config.annotation.NacosConfigurationProperties;
 import org.springframework.cloud.gateway.route.RouteDefinition;
 import org.springframework.cloud.gateway.route.RouteDefinitionRepository;
 import org.springframework.stereotype.Component;

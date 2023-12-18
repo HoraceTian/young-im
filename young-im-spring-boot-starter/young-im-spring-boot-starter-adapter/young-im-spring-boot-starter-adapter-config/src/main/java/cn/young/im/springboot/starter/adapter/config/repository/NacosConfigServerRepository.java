@@ -1,6 +1,5 @@
 package cn.young.im.springboot.starter.adapter.config.repository;
 
-import cn.young.im.springboot.starter.adapter.config.ConfigServerRepository;
 import com.alibaba.nacos.api.config.ConfigService;
 import com.alibaba.nacos.api.exception.NacosException;
 import lombok.AllArgsConstructor;

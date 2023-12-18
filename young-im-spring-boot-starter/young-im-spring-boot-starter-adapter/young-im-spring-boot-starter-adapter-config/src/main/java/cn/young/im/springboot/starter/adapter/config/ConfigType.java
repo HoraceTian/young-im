@@ -1,10 +1,13 @@
 package cn.young.im.springboot.starter.adapter.config;
 
 import com.alibaba.nacos.api.utils.StringUtils;
+import lombok.Getter;
 
 import java.util.HashMap;
 import java.util.Map;
 
+
+@Getter
 public enum ConfigType {
 
     /**
@@ -15,7 +18,7 @@ public enum ConfigType {
     /**
      * text
      */
-    TEXT("text"),
+    PROPERTIES("properties"),
 
     /**
      * yaml
@@ -27,8 +30,6 @@ public enum ConfigType {
      */
     UNSET("unset");
 
-    private final String type;
-
     private static final Map<String, ConfigType> LOCAL_MAP = new HashMap<>();
 
     static {
@@ -37,15 +38,10 @@ public enum ConfigType {
         }
     }
 
+    private final String type;
+
     ConfigType(String type) {
         this.type = type;
-    }
-
-    /**
-     * 获取类型
-     */
-    public String getType() {
-        return type;
     }
 
     /**

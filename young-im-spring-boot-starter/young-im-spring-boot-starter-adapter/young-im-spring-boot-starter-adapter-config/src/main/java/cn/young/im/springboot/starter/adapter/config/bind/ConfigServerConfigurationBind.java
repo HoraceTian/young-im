@@ -1,16 +1,17 @@
 package cn.young.im.springboot.starter.adapter.config.bind;
 
 import cn.young.im.common.exception.YoungImException;
-import cn.young.im.springboot.starter.adapter.config.*;
+import cn.young.im.springboot.starter.adapter.config.callback.ConfigRefreshCallBack;
+import cn.young.im.springboot.starter.adapter.config.repository.ConfigServerRepository;
+import cn.young.im.springboot.starter.adapter.config.ConfigType;
+import cn.young.im.springboot.starter.adapter.config.anno.ConfigServerConfigurationProperties;
 import cn.young.im.springboot.starter.adapter.config.parse.ConfigParseFactory;
 import cn.young.im.springboot.starter.adapter.config.parse.IConfigParseHandler;
 import cn.young.im.springboot.starter.extension.spring.ApplicationContextHolder;
-import com.alibaba.fastjson2.JSON;
 import com.alibaba.nacos.api.config.listener.AbstractListener;
 import com.alibaba.nacos.api.exception.NacosException;
 import lombok.AllArgsConstructor;
 import lombok.NonNull;
-import org.springframework.beans.BeanUtils;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 import org.springframework.core.annotation.AnnotationUtils;
@@ -19,8 +20,6 @@ import java.util.Objects;
 
 @AllArgsConstructor
 public class ConfigServerConfigurationBind implements BeanPostProcessor {
-
-    private final ConfigPropertyResolver configPropertyResolver;
 
     private final ConfigServerRepository configServerRepository;
 
@@ -82,7 +81,7 @@ public class ConfigServerConfigurationBind implements BeanPostProcessor {
                         Object originBean = _contextHolder.getContext().getBean(_beanName);
 
                         // 2. 提取处理器
-                        IConfigParseHandler handler = ConfigParseFactory.acquireHandler(type);
+                        IConfigParseHandler handler = ConfigParseFactory.acquireHandler(_type);
 
                         // 3. 执行处理
                         handler.parse(configInfo, originBean);
@@ -107,18 +106,14 @@ public class ConfigServerConfigurationBind implements BeanPostProcessor {
         // 处理未设情况 (尝)
         if (ConfigType.UNSET.equals(configType)) {
             String dataId = annotation.configKey();
-
+            // 没有设置就取ConfigKey的后缀名，没有直接报错
             int dotIndex = dataId.lastIndexOf(".");
             if (dotIndex == -1) {
-                throw new YoungImException("please set config type with @ConfigServerConfigurationProperties");
+                throw new YoungImException("please set config type with @" + ConfigServerConfigurationProperties.class.getName());
             }
             // 判断 dataId 截取后缀的合法性
             String subjectType = dataId.substring(dotIndex + 1);
-            if (ConfigType.isValidType(subjectType)) {
-                type = subjectType;
-            } else {
-                type = ConfigType.getDefaultType().getType();
-            }
+            type = ConfigType.isValidType(subjectType) ? subjectType : ConfigType.getDefaultType().getType();
         } else {
             type = configType.getType();
         }
