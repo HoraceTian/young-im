@@ -18,7 +18,7 @@ import java.util.List;
 @Data
 @Component
 @ConfigServerConfigurationProperties
-        (configKey = "router", groupId = "young_im", autoRefreshed = true, type = ConfigType.JSON,
+        (configKey = "router", groupId = "young_im", type = ConfigType.JSON,
                 callbackClazz = DynamicRouteService.class)
 public class RouteProperties {
     private List<RouteDefinition> route;

@@ -1,7 +1,6 @@
 spring:
   application:
     name: young-im-gateway
-
   cloud:
     nacos:
       config:

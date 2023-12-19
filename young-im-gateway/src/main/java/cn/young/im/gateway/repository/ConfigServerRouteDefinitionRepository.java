@@ -30,23 +30,23 @@ public class ConfigServerRouteDefinitionRepository implements RouteDefinitionRep
      */
     public static final Map<String, RouteDefinition> routes = synchronizedMap(new LinkedHashMap<>());
 
-    /**
-     * 配置仓储
-     */
-    @Resource
-    private ConfigServerRepository configServerRepository;
+//    /**
+//     * 配置仓储
+//     */
+//    @Resource
+//    private ConfigServerRepository configServerRepository;
 
-    /**
-     * 初始化路由
-     */
-    @PostConstruct
-    public void initRoutes() {
-        String configJson = configServerRepository.getConfig("router", "young_im");
-        RouteProperties routeProperties = JSON.parseObject(configJson, RouteProperties.class);
-        for (RouteDefinition route : routeProperties.getRoute()) {
-            routes.put(route.getId(), route);
-        }
-    }
+//    /**
+//     * 初始化路由
+//     */
+//    @PostConstruct
+//    public void initRoutes() {
+//        String configJson = configServerRepository.getConfig("router", "young_im");
+//        RouteProperties routeProperties = JSON.parseObject(configJson, RouteProperties.class);
+//        for (RouteDefinition route : routeProperties.getRoute()) {
+//            routes.put(route.getId(), route);
+//        }
+//    }
 
     /**
      * 获取路由

@@ -73,6 +73,6 @@ public class ImWebSocketServer {
     public void start() {
         // 启动服务端
         this.bootstrap.bind(config.getWebSocketPort());
-        log.info("websocket start success");
+        log.info("websocket start with port {} success",config.getWebSocketPort());
     }
 }
